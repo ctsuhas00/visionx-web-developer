@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VisionX Web Developer | Premium Websites for Modern Businesses</title>
+<meta name="description" content="VisionX Web Developer creates premium, responsive websites for hotels, resorts, cafés, clinics and growing businesses.">
+
+<meta property="og:title" content="VisionX Web Developer | Premium Websites for Modern Businesses">
+<meta property="og:description" content="We turn businesses into digital experiences. Premium, responsive websites for hospitality, wellness and local brands.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0b0d10">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="progress-rail" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="siteNav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo">
+      <span class="nav-logo-main">VISIONX</span>
+      <span class="nav-logo-sub">WEB DEVELOPER</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a href="#contact" class="btn btn-ghost nav-cta">Start a Project</a>
+
+    <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+
+  <div class="nav-mobile" id="navMobile">
+    <a href="#work">Work</a>
+    <a href="#services">Services</a>
+    <a href="#process">Process</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" class="btn btn-primary">Start a Project</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <svg class="hero-lines" aria-hidden="true" viewBox="0 0 1440 900" preserveAspectRatio="none">
+      <path class="hl hl-1" d="M-100 680 C 300 600, 600 760, 1540 560" />
+      <path class="hl hl-2" d="M-100 220 C 400 320, 900 120, 1540 260" />
+      <circle class="hl-dot" cx="1180" cy="200" r="2.2" />
+      <circle class="hl-dot" cx="260" cy="700" r="2.2" />
+      <circle class="hl-dot" cx="760" cy="140" r="1.6" />
+    </svg>
+    <div class="hero-inner">
+      <p class="eyebrow reveal-up">DIGITAL SHOWROOM &mdash; VISIONX WEB DEVELOPER</p>
+      <h1 class="hero-title">
+        <span class="line"><span class="reveal-word">We</span> <span class="reveal-word">Turn</span> <span class="reveal-word">Businesses</span></span>
+        <span class="line"><span class="reveal-word">Into</span> <span class="reveal-word">Digital</span></span>
+        <span class="line"><span class="reveal-word accent-word">Experiences.</span></span>
+      </h1>
+      <p class="hero-sub reveal-up">VisionX Web Developer creates premium websites that help hotels, cafés, resorts, clinics and growing businesses stand out online.</p>
+      <div class="hero-ctas reveal-up">
+        <a href="#work" class="btn btn-primary magnetic">Explore Our Work</a>
+        <a href="#contact" class="btn btn-line magnetic">Build With VisionX</a>
+      </div>
+    </div>
+
+    <!-- Transformation card -->
+    <div class="transform-stage reveal-up" aria-hidden="true">
+      <div class="transform-card" id="transformCard">
+        <div class="tcard tcard-a">
+          <span class="tcard-label">01</span>
+          <span class="tcard-text">YOUR&nbsp;BUSINESS</span>
+        </div>
+        <div class="tcard tcard-b">
+          <span class="tcard-label">02</span>
+          <span class="tcard-text">VISIONX</span>
+        </div>
+        <div class="tcard tcard-c">
+          <span class="tcard-label">03</span>
+          <span class="tcard-text">YOUR DIGITAL&nbsp;EXPERIENCE</span>
+        </div>
+      </div>
+      <div class="transform-preview" id="transformPreview">
+        <div class="tp-bar">
+          <span class="tp-dot"></span><span class="tp-dot"></span><span class="tp-dot"></span>
+          <span class="tp-url">visionx.studio/yourbusiness</span>
+        </div>
+        <div class="tp-hero">
+          <span class="tp-hero-eyebrow">YOUR BUSINESS</span>
+          <span class="tp-hero-title">Premium Experience</span>
+          <span class="tp-hero-btn">Explore</span>
+        </div>
+        <div class="tp-nav">
+          <span>About</span><span>Services</span><span>Gallery</span>
+        </div>
+      </div>
+    </div>
+    <p class="scroll-cue reveal-up">Scroll <span>&darr;</span></p>
+  </section>
+
+  <!-- ============ WHAT WE BUILD ============ -->
+  <section class="section categories" id="categories">
+    <div class="section-head">
+      <p class="eyebrow reveal-up">WHAT WE BUILD</p>
+      <h2 class="reveal-up">Imagine Your Business, Online.</h2>
+    </div>
+
+    <div class="cat-grid reveal-group" id="catGrid">
+      <!-- injected by JS from data, with graceful no-js fallback below -->
+      <noscript>
+        <div class="cat-card"><h3>Hotels &amp; Resorts</h3><p>Turn rooms, views and hospitality into an unforgettable digital experience.</p></div>
+        <div class="cat-card"><h3>Cafés &amp; Restaurants</h3><p>Make your menu, atmosphere and brand impossible to scroll past.</p></div>
+        <div class="cat-card"><h3>Clinics</h3><p>Build trust before your customer ever walks through the door.</p></div>
+      </noscript>
+    </div>
+  </section>
+
+  <!-- ============ SIGNATURE: FIRST IMPRESSIONS ============ -->
+  <section class="section impressions" id="impressions">
+    <div class="section-head dark">
+      <p class="eyebrow reveal-up">THE VISIONX PHILOSOPHY</p>
+      <h2 class="reveal-up">We Don&rsquo;t Sell Websites.<br>We Sell First Impressions.</h2>
+      <p class="lede reveal-up">For most customers, your website is the first conversation they have with your business &mdash; long before they call, visit or book. We design that conversation with intent.</p>
+    </div>
+
+    <div class="stage-line reveal-group">
+      <div class="stage">
+        <span class="stage-num">01</span>
+        <h3>Discover</h3>
+        <p>We understand the business, audience and brand.</p>
+      </div>
+      <div class="stage-connector" aria-hidden="true"></div>
+      <div class="stage">
+        <span class="stage-num">02</span>
+        <h3>Design</h3>
+        <p>We turn the business identity into a visual digital experience.</p>
+      </div>
+      <div class="stage-connector" aria-hidden="true"></div>
+      <div class="stage">
+        <span class="stage-num">03</span>
+        <h3>Deliver</h3>
+        <p>We build a fast, responsive and professional website.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FROM BUSINESS TO WEBSITE ============ -->
+  <section class="section translate" id="translate">
+    <div class="section-head">
+      <p class="eyebrow reveal-up">THE TRANSLATION</p>
+      <h2 class="reveal-up">From Business, To Website.</h2>
+    </div>
+
+    <div class="translate-grid reveal-group">
+      <div class="translate-col">
+        <p class="translate-heading">YOUR BUSINESS</p>
+        <ul class="translate-list" id="listBusiness">
+          <li>Location</li>
+          <li>Images</li>
+          <li>Services</li>
+          <li>Story</li>
+          <li>Brand</li>
+          <li>Contact information</li>
+          <li>Customer experience</li>
+        </ul>
+      </div>
+
+      <div class="translate-arrow" aria-hidden="true">
+        <svg viewBox="0 0 120 24" width="120" height="24"><path d="M0 12H112M112 12L96 2M112 12L96 22" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+      </div>
+
+      <div class="translate-col">
+        <p class="translate-heading">YOUR DIGITAL EXPERIENCE</p>
+        <ul class="translate-list" id="listDigital">
+          <li>Hero section</li>
+          <li>About</li>
+          <li>Services</li>
+          <li>Gallery</li>
+          <li>Menu</li>
+          <li>Contact</li>
+          <li>Location</li>
+          <li>Responsive mobile design</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PORTFOLIO ============ -->
+  <section class="section portfolio" id="work">
+    <div class="section-head">
+      <p class="eyebrow reveal-up">CONCEPT PROJECTS</p>
+      <h2 class="reveal-up">What VisionX Can Build.</h2>
+      <p class="lede reveal-up">VisionX is an emerging studio building its portfolio. The following are concept projects &mdash; original design explorations, not completed client work.</p>
+    </div>
+
+    <div class="portfolio-grid reveal-group" id="portfolioGrid"></div>
+  </section>
+
+  <!-- ============ SELECTOR ============ -->
+  <section class="section selector" id="services">
+    <div class="section-head">
+      <p class="eyebrow reveal-up">SEE IT FOR YOURSELF</p>
+      <h2 class="reveal-up">Choose Your Business.<br>See Your Possibilities.</h2>
+      <p class="lede reveal-up">What kind of business do you run?</p>
+    </div>
+
+    <div class="selector-wrap reveal-group">
+      <div class="selector-tabs" id="selectorTabs" role="tablist" aria-label="Business type"></div>
+      <div class="selector-display" id="selectorDisplay"></div>
+    </div>
+  </section>
+
+  <!-- ============ WHY VISIONX ============ -->
+  <section class="section why" id="about">
+    <div class="section-head">
+      <p class="eyebrow reveal-up">WHY VISIONX</p>
+      <h2 class="reveal-up">Why Businesses Choose VisionX.</h2>
+    </div>
+
+    <div class="why-grid reveal-group">
+      <div class="why-card why-featured">
+        <span class="why-num">01</span>
+        <h3>Designed Around Your Business</h3>
+        <p>No generic one-size-fits-all design. Every layout, color choice and piece of copy starts from your brand, not a template.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-num">02</span>
+        <h3>Mobile First</h3>
+        <p>Beautiful experiences across phones, tablets and desktops.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-num">03</span>
+        <h3>Fast &amp; Lightweight</h3>
+        <p>Performance-focused websites.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-num">04</span>
+        <h3>Visual Storytelling</h3>
+        <p>We turn your business into a digital story.</p>
+      </div>
+      <div class="why-card why-wide">
+        <span class="why-num">05</span>
+        <h3>Built For Growth</h3>
+        <p>Websites designed so the business can evolve later &mdash; new pages, new sections, new services, without a rebuild.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-num">06</span>
+        <h3>Personal Collaboration</h3>
+        <p>We work directly with the business owner to understand their vision.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROCESS TIMELINE ============ -->
+  <section class="section process" id="process">
+    <div class="section-head">
+      <p class="eyebrow reveal-up">HOW WE WORK</p>
+      <h2 class="reveal-up">The VisionX Process.</h2>
+    </div>
+
+    <div class="timeline reveal-group">
+      <div class="tl-item">
+        <span class="tl-num">01</span>
+        <div><h3>Discovery</h3><p>We learn about your business.</p></div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-num">02</span>
+        <div><h3>Concept</h3><p>We develop the visual direction.</p></div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-num">03</span>
+        <div><h3>Design</h3><p>We create the website experience.</p></div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-num">04</span>
+        <div><h3>Development</h3><p>We build the responsive website.</p></div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-num">05</span>
+        <div><h3>Launch</h3><p>Your business gets its digital presence.</p></div>
+      </div>
+      <div class="tl-track" aria-hidden="true"><div class="tl-track-fill" id="tlFill"></div></div>
+    </div>
+  </section>
+
+  <!-- ============ CONVERSION BAND ============ -->
+  <section class="section convert">
+    <div class="convert-inner reveal-up">
+      <h2>Your Business Deserves More Than a Google Listing.</h2>
+      <p>Give your customers a place to discover your story, explore your services and understand what makes your business different.</p>
+      <a href="#contact" class="btn btn-primary magnetic">Start a Conversation &rarr;</a>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="section contact" id="contact">
+    <div class="section-head">
+      <p class="eyebrow reveal-up">GET IN TOUCH</p>
+      <h2 class="reveal-up">Have a Business?<br>Let&rsquo;s Build Its Digital Home.</h2>
+    </div>
+
+    <div class="contact-grid reveal-group">
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="field-row">
+          <div class="field">
+            <label for="fName">Name</label>
+            <input type="text" id="fName" name="name" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="fBusinessName">Business name</label>
+            <input type="text" id="fBusinessName" name="businessName" required autocomplete="organization">
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="fBusinessType">Business type</label>
+            <select id="fBusinessType" name="businessType" required>
+              <option value="" disabled selected>Select one</option>
+              <option>Hotel</option>
+              <option>Resort</option>
+              <option>Lodge</option>
+              <option>Homestay</option>
+              <option>Café</option>
+              <option>Restaurant</option>
+              <option>Clinic</option>
+              <option>Salon</option>
+              <option>Local Business</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fEmail">Email</label>
+            <input type="email" id="fEmail" name="email" required autocomplete="email">
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="fPhone">Phone</label>
+            <input type="tel" id="fPhone" name="phone" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="fNeed">What do you need?</label>
+            <input type="text" id="fNeed" name="need" placeholder="e.g. New website, redesign, landing page">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="fMessage">Message</label>
+          <textarea id="fMessage" name="message" rows="4" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary magnetic" id="submitBtn">Send Project Inquiry &rarr;</button>
+        <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="contact-side">
+        <div class="contact-info">
+          <p class="ci-label">Email</p>
+          <p class="ci-value">hello@visionxweb.example</p>
+        </div>
+        <div class="contact-info">
+          <p class="ci-label">Phone</p>
+          <p class="ci-value">+91 00000 00000</p>
+        </div>
+        <div class="contact-info">
+          <p class="ci-label">Instagram</p>
+          <p class="ci-value">@visionxweb</p>
+        </div>
+        <div class="contact-info">
+          <p class="ci-label">LinkedIn</p>
+          <p class="ci-value">/company/visionxweb</p>
+        </div>
+        <p class="ci-placeholder-note">Placeholder contact details &mdash; update before launch.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-top">
+    <h2>Let&rsquo;s build something people remember.</h2>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-brand">
+      <span class="nav-logo-main">VISIONX</span>
+      <span class="nav-logo-sub">WEB DEVELOPER</span>
+    </div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="footer-social">
+      <a href="#" aria-label="Instagram">Instagram</a>
+      <a href="#" aria-label="LinkedIn">LinkedIn</a>
+    </div>
+  </div>
+  <p class="footer-copy">&copy; 2026 VisionX Web Developer. All rights reserved.</p>
+</footer>
+
+<!-- ============ CONCEPT MODAL ============ -->
+<div class="modal" id="conceptModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-backdrop" id="modalBackdrop"></div>
+  <div class="modal-panel">
+    <div class="modal-chrome" aria-hidden="true">
+      <span class="proj-dot"></span><span class="proj-dot"></span><span class="proj-dot"></span>
+      <span class="modal-chrome-url" id="modalChromeUrl">visionx.studio</span>
+    </div>
+    <button class="modal-close" id="modalClose" aria-label="Close preview">&times;</button>
+    <div class="modal-scroll" id="modalScroll">
+      <!-- injected per-project preview -->
+    </div>
+  </div>
+</div>
+
+<button class="to-top" id="toTop" aria-label="Back to top">&uarr;</button>
+
+<script src="script.js"></script>
+</body>
+</html>
