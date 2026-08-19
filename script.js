@@ -434,7 +434,7 @@
       '<div class="proj-visual">' +
         '<div class="proj-chrome">' +
           '<span class="proj-dot"></span><span class="proj-dot"></span><span class="proj-dot"></span>' +
-          '<span class="proj-chrome-url">visionx.studio/' + proj.id + '</span>' +
+          '<span class="proj-chrome-url">visionxwebdeveloper.com/' + proj.id + '</span>' +
         '</div>' +
         '<div class="proj-media">' +
           mediaHTML(proj.img, proj.name, proj.grad) +
@@ -493,7 +493,7 @@
 
   function openModal(proj){
     var urlLabel = document.getElementById("modalChromeUrl");
-    if(urlLabel) urlLabel.textContent = "visionx.studio/" + proj.id;
+    if(urlLabel) urlLabel.textContent = "visionxwebdeveloper.com/" + proj.id;
     modalScroll.innerHTML = buildPreviewMarkup(proj);
     modalScroll.scrollTop = 0;
     modal.classList.add("open");
@@ -671,11 +671,13 @@
   }
 
   /* ---------------------------------------------------------
-     CONTACT FORM (no backend — front-end confirmation only)
+     CONTACT FORM — sends the inquiry to WhatsApp
   --------------------------------------------------------- */
   var form = document.getElementById("contactForm");
   var formNote = document.getElementById("formNote");
   var submitBtn = document.getElementById("submitBtn");
+  var WHATSAPP_NUMBER = "919380914269";
+  var DEFAULT_SUBMIT_LABEL = "Send Project Inquiry \u2192";
 
   form.addEventListener("submit", function(e){
     e.preventDefault();
@@ -684,14 +686,48 @@
       form.reportValidity();
       return;
     }
+
+    var name = form.elements["name"].value.trim();
+    var businessName = form.elements["businessName"].value.trim();
+    var businessType = form.elements["businessType"].value.trim();
+    var email = form.elements["email"].value.trim();
+    var phone = form.elements["phone"].value.trim();
+    var need = form.elements["need"].value.trim();
+    var message = form.elements["message"].value.trim();
+
+    var lines = [
+      "Hello VisionX Web Developer,",
+      "",
+      "I would like to discuss a website project.",
+      "",
+      "Name: " + name,
+      "Business Name: " + businessName,
+      "Email: " + email
+    ];
+    if(phone){ lines.push("Phone: " + phone); }
+    lines.push("Business Type: " + businessType);
+    if(need){ lines.push("What They Need: " + need); }
+    lines.push(
+      "",
+      "Project Details:",
+      message,
+      "",
+      "Sent from:",
+      "visionxwebdeveloper.com"
+    );
+
+    var whatsappMessage = lines.join("\n");
+    var whatsappUrl = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(whatsappMessage);
+
     submitBtn.disabled = true;
-    submitBtn.textContent = "Sending…";
-    setTimeout(function(){
-      formNote.textContent = "Thanks — your inquiry has been noted. This form is a front-end demo and isn't connected to a live inbox yet.";
-      submitBtn.textContent = "Send Project Inquiry \u2192";
-      submitBtn.disabled = false;
-      form.reset();
-    }, 900);
+    submitBtn.textContent = "Opening WhatsApp\u2026";
+
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+
+    formNote.textContent = "WhatsApp is opening in a new tab with your inquiry pre-filled.";
+    submitBtn.textContent = DEFAULT_SUBMIT_LABEL;
+    submitBtn.disabled = false;
+    form.reset();
   });
 
   /* ---------------------------------------------------------

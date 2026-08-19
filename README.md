@@ -109,14 +109,22 @@ are listed in `script.js` next to the `CATEGORIES`, `PROJECTS` and
 sections of `index.html`. A per-folder `README.txt` under
 `assets/images/<category>/` repeats this so it's obvious on disk too.
 
+## Contact & inquiries
+
+- Email (`hello@visionxwebdeveloper.com`) and phone (`+91 93809 14269`) in
+  the contact section are real and clickable (`mailto:` / `tel:`).
+- Instagram and LinkedIn have been removed site-wide. WhatsApp
+  (`https://wa.me/919380914269`) is the primary quick-contact channel, with
+  a link in the contact section and in the footer.
+- The "Send Project Inquiry →" form no longer fakes a submission. On
+  submit it validates the required fields, builds a pre-filled message from
+  the visitor's name, business name, business type, phone (if given), what
+  they need (if given) and project details, URL-encodes it, and opens
+  `https://wa.me/919380914269?text=...` in a new tab — see the contact-form
+  handler in `script.js`.
+
 ## Remaining placeholders
 
-- Contact email, phone, Instagram and LinkedIn handles in the contact
-  section are still placeholders — replace with real details before launch.
-- The contact form validates and shows a confirmation message, but isn't
-  wired to a real inbox — connect it to a form backend (Formspree, a
-  serverless function, your own API) before relying on it for real
-  inquiries.
 - Every photo slot described above is a gradient placeholder until you add
   real photography.
 
