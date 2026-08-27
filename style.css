@@ -176,8 +176,8 @@ button{ font-family: inherit; }
 .nav-logo-main{ font-family: var(--font-display); font-size: 20px; letter-spacing: .04em; }
 .nav-logo-sub{ font-family: var(--font-mono); font-size: 9px; letter-spacing: .22em; color: var(--muted); margin-top: 4px; }
 
-.nav-links{ display: flex; gap: 36px; }
-.nav-links a{ font-size: 14px; color: var(--muted); position: relative; padding: 4px 0; transition: color .3s; }
+.nav-links{ display: flex; gap: 34px; }
+.nav-links a{ font-size: 15.5px; letter-spacing: .01em; color: var(--muted); position: relative; padding: 4px 0; transition: color .3s; }
 .nav-links a:hover{ color: var(--text-light); }
 .nav-links a::after{ content:''; position:absolute; left:0; bottom:0; height:1px; width:0; background:var(--brass); transition: width .3s var(--ease); }
 .nav-links a:hover::after{ width: 100%; }
@@ -825,15 +825,40 @@ button{ font-family: inherit; }
 .why-featured{
   grid-column: span 2; grid-row: span 2;
   background: linear-gradient(160deg, rgba(201,162,39,.14), rgba(20,23,28,.9));
+  position: relative; overflow: hidden;
 }
-.why-featured h3{ font-size: 28px; max-width: 320px; }
-.why-featured p{ font-size: 15px; max-width: 320px; }
-.why-featured .why-num{ color: var(--brass); }
+.why-featured h3{ position: relative; z-index: 2; font-size: 28px; max-width: 320px; }
+.why-featured p{ position: relative; z-index: 2; font-size: 15px; max-width: 320px; }
+.why-featured .why-num{ position: relative; z-index: 2; color: var(--brass); }
+/* subtle dark editorial photograph behind the copy — drop a real photo
+   at the hinted path and it takes over automatically; until then the
+   custom gradient below (not the generic brass placeholder) shows,
+   so the card reads as an intentional dark panel either way */
+.why-featured-media{
+  position: absolute; inset: 0; z-index: 0;
+  background: radial-gradient(120% 90% at 100% 100%, rgba(52,92,96,.35), transparent 60%), linear-gradient(160deg, rgba(31,58,61,.6), rgba(11,13,16,.96));
+}
+.why-featured-scrim{
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(0deg, rgba(11,13,16,.88) 0%, rgba(11,13,16,.55) 55%, rgba(11,13,16,.35) 100%);
+}
 .why-wide p{ max-width: 420px; }
 
 /* =========================================================
    TIMELINE
    ========================================================= */
+.process-visual{
+  position: relative; height: 220px; border-radius: var(--radius-m); overflow: hidden;
+  margin-bottom: 56px;
+  background: radial-gradient(90% 100% at 20% 0%, rgba(52,92,96,.4), transparent 65%), linear-gradient(160deg, rgba(31,58,61,.55), rgba(11,13,16,.96));
+  border: 1px solid var(--line);
+}
+.process-visual-scrim{
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(90deg, rgba(11,13,16,.15) 0%, rgba(11,13,16,.65) 100%);
+}
+@media (max-width: 768px){ .process-visual{ height: 140px; margin-bottom: 40px; } }
+
 .timeline{ position: relative; display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; padding-top: 30px; }
 .tl-track{ position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--line); }
 .tl-track-fill{ position:absolute; left:0; top:0; height:100%; width:0%; background: var(--brass); transition: width 1.2s var(--ease); }
@@ -894,6 +919,10 @@ button{ font-family: inherit; }
 .footer{ background: var(--ink-2); border-top: 1px solid var(--line); padding: 90px var(--gutter) 30px; }
 .footer-top{ max-width: var(--container); margin: 0 auto 70px; }
 .footer-top h2{ font-size: clamp(30px,5vw,58px); max-width: 780px; }
+.footer-cta{ display: flex; align-items: center; flex-wrap: wrap; gap: 24px; margin-top: 32px; }
+.footer-cta-link{ font-family: var(--font-mono); font-size: 13px; letter-spacing: .04em; color: var(--muted); border-bottom: 1px solid transparent; transition: color .3s var(--ease), border-color .3s var(--ease); }
+.footer-cta-link:hover{ color: var(--brass-soft); border-color: var(--brass-soft); }
+@media (max-width: 768px){ .footer-cta{ flex-direction: column; align-items: flex-start; gap: 16px; } .footer-cta .btn{ width: 100%; justify-content: center; } }
 .footer-bottom{
   max-width: var(--container); margin: 0 auto; padding-bottom: 40px; border-bottom: 1px solid var(--line);
   display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px;
@@ -951,10 +980,19 @@ button{ font-family: inherit; }
 .mp-section{ padding: 44px 40px; border-bottom: 1px solid var(--line-light); }
 .mp-section h4{ font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); margin-bottom: 20px; }
 .mp-grid{ display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
-.mp-swatch{ height: 110px; border-radius: 6px; position: relative; overflow: hidden; }
+.mp-swatch{ aspect-ratio: 1 / 1; height: auto; border-radius: 6px; position: relative; overflow: hidden; }
 .mp-swatch .media{ position: absolute; inset: 0; }
+.mp-swatch .media img{ object-fit: cover; }
 .mp-text{ font-size: 15px; line-height: 1.7; color: #3c4048; max-width: 560px; }
 .mp-contact-grid{ display: grid; grid-template-columns: 1fr 1fr; gap: 24px; font-size: 14px; color: #3c4048; }
+
+/* conversion moment inside each concept preview — replaces the old
+   placeholder "Location & Contact" block with a short pitch back to VisionX */
+.mp-convert{ text-align: center; background: var(--paper-2); }
+.mp-convert-eyebrow{ font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--teal-soft); margin-bottom: 12px; }
+.mp-convert-title{ font-family: var(--font-display); font-size: clamp(22px,3vw,30px); color: var(--text-dark); margin-bottom: 14px; max-width: 480px; margin-left: auto; margin-right: auto; }
+.mp-convert .mp-text{ margin: 0 auto 26px; text-align: center; }
+.mp-convert-btn{ }
 
 /* =========================================================
    TO TOP
@@ -967,6 +1005,71 @@ button{ font-family: inherit; }
   transition: opacity .4s var(--ease), transform .4s var(--ease);
 }
 .to-top.show{ opacity: 1; pointer-events: auto; transform: translateY(0); }
+
+/* =========================================================
+   FLOATING WHATSAPP CONTACT
+   Bottom-left, opposite corner from "to top" / the assistant, so
+   nothing ever collides regardless of scroll position.
+   ========================================================= */
+.whatsapp-float{
+  position: fixed; left: 24px; bottom: 24px; z-index: 300;
+  width: 52px; height: 52px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--ink-2); border: 1px solid var(--line); color: var(--brass-soft);
+  box-shadow: 0 14px 34px rgba(0,0,0,.35);
+  transition: transform .3s var(--ease), border-color .3s var(--ease), color .3s var(--ease);
+}
+.whatsapp-float:hover{ transform: translateY(-3px); border-color: var(--brass); color: var(--brass); }
+@media (max-width: 768px){ .whatsapp-float{ left: 18px; bottom: calc(18px + env(safe-area-inset-bottom)); width: 48px; height: 48px; } }
+
+/* =========================================================
+   VISIONX ASSISTANT — predefined-response widget
+   Sits above the "to top" button on the same (right) side so the
+   WhatsApp button and the assistant never overlap.
+   ========================================================= */
+.assistant-toggle{
+  position: fixed; right: 24px; bottom: 88px; z-index: 300;
+  width: 52px; height: 52px; border-radius: 50%; border: 1px solid var(--line);
+  background: var(--ink-2); color: var(--brass-soft); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 14px 34px rgba(0,0,0,.35);
+  transition: transform .3s var(--ease), border-color .3s var(--ease), color .3s var(--ease);
+}
+.assistant-toggle:hover{ transform: translateY(-3px); border-color: var(--brass); color: var(--brass); }
+@media (max-width: 768px){ .assistant-toggle{ right: 18px; bottom: calc(80px + env(safe-area-inset-bottom)); width: 48px; height: 48px; } }
+
+.assistant-panel{
+  position: fixed; right: 24px; bottom: 150px; z-index: 301;
+  width: min(320px, calc(100vw - 48px)); max-height: min(420px, 60vh);
+  display: flex; flex-direction: column;
+  background: var(--ink-2); border: 1px solid var(--line); border-radius: var(--radius-m);
+  box-shadow: 0 24px 60px rgba(0,0,0,.45);
+  opacity: 0; transform: translateY(14px) scale(.97); pointer-events: none;
+  transition: opacity .3s var(--ease), transform .3s var(--ease);
+}
+.assistant-panel.open{ opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+@media (max-width: 768px){ .assistant-panel{ right: 18px; bottom: calc(140px + env(safe-area-inset-bottom)); } }
+
+.asst-head{
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 16px; border-bottom: 1px solid var(--line);
+  font-family: var(--font-display); font-size: 15px;
+}
+.asst-close{ width: 28px; height: 28px; border-radius: 50%; border: none; background: rgba(243,239,230,.08); color: var(--text-light); font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.asst-body{ padding: 14px 16px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.asst-msg{ font-size: 13.5px; line-height: 1.55; }
+.asst-msg-bot{ color: var(--muted); background: rgba(243,239,230,.05); border-radius: 8px; padding: 10px 12px; }
+.asst-questions{ display: flex; flex-direction: column; gap: 8px; margin-top: 2px; }
+.asst-q{
+  text-align: left; font-family: var(--font-body); font-size: 13px; color: var(--text-light);
+  background: transparent; border: 1px solid var(--line); border-radius: 8px; padding: 9px 12px; cursor: pointer;
+  transition: border-color .25s var(--ease), color .25s var(--ease);
+}
+.asst-q:hover{ border-color: var(--brass); color: var(--brass-soft); }
+.asst-foot{ padding: 12px 16px; border-top: 1px solid var(--line); }
+.asst-foot-link{ font-family: var(--font-mono); font-size: 12px; letter-spacing: .04em; color: var(--brass-soft); }
+.asst-foot-link:hover{ color: var(--brass); }
+@media (prefers-reduced-motion: reduce){ .assistant-panel{ transition: none; } .whatsapp-float, .assistant-toggle{ transition: none; } }
 
 /* =========================================================
    RESPONSIVE — TABLET (1024px)
@@ -1100,6 +1203,13 @@ button{ font-family: inherit; }
 
   /* ---------- portfolio: one project per view ---------- */
   .portfolio-grid{ grid-template-columns: 1fr; gap: 30px; }
+  /* Force identical left edges/width on mobile regardless of each card's
+     desktop reveal personality — "layered" in particular rotates and
+     offsets the whole card, which reads as misalignment once several
+     cards stack in a single column. Desktop/tablet keep their layouts. */
+  .proj-card{ width: 100%; margin: 0; }
+  .proj-card[data-layout="layered"]{ transform: none; }
+  .proj-card[data-layout="layered"].revealed{ transform: none; }
   .proj-visual{ height: auto; }
   .proj-media{ aspect-ratio: 4 / 5; }
   .proj-media .media img{ object-position: 50% 32%; }
@@ -1176,7 +1286,8 @@ button{ font-family: inherit; }
   .mp-hero h2{ font-size: clamp(24px, 8vw, 32px); }
   .mp-section{ padding: 32px 20px; }
   .mp-grid{ grid-template-columns: repeat(2,1fr); gap: 10px; }
-  .mp-swatch{ height: 84px; }
+  .mp-swatch{ aspect-ratio: 1 / 1; height: auto; }
+  .mp-convert-title{ font-size: 21px; }
   .mp-text{ font-size: 14.5px; }
   .mp-contact-grid{ grid-template-columns: 1fr; gap: 16px; font-size: 13.5px; }
   .mp-footer{ padding: 22px 20px; flex-direction: column; align-items: flex-start; gap: 8px; }
@@ -1203,8 +1314,8 @@ button{ font-family: inherit; }
   .moment-visual{ height: 180px; }
   .cat-card{ min-height: 84vw; }
   .why-featured h3{ font-size: 21px; }
-  .mp-grid{ grid-template-columns: 1fr; }
-  .mp-swatch{ height: 130px; }
+  .mp-grid{ grid-template-columns: repeat(2,1fr); }
+  .mp-swatch{ aspect-ratio: 1 / 1; height: auto; }
   .scroll-cue{ bottom: -20px; }
 }
 
