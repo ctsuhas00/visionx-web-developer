@@ -6,7 +6,6 @@
   "use strict";
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var WHATSAPP_NUMBER = "919380914269";
 
   /* ---------------------------------------------------------
      MEDIA HELPER
@@ -527,6 +526,21 @@
   }
   modalClose.addEventListener("click", closeModal);
   modalBackdrop.addEventListener("click", closeModal);
+  /* The in-modal "Build Yours With VisionX" CTA points at #contact —
+     close the modal first so body scroll is restored, then let the
+     page scroll to the contact section. */
+  modalScroll.addEventListener("click", function(e){
+    var cta = e.target.closest && e.target.closest("[data-modal-cta]");
+    if(!cta) return;
+    e.preventDefault();
+    closeModal();
+    var target = document.getElementById("contact");
+    if(target){
+      setTimeout(function(){
+        target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+      }, 50);
+    }
+  });
   document.addEventListener("keydown", function(e){
     if(!modal.classList.contains("open")) return;
 
@@ -580,24 +594,22 @@
         '<p class="mp-text">' + proj.about + '</p>' +
       '</div>' +
       sectionsHtml +
-      '<div class="mp-section mp-convert">' +
-        '<p class="mp-convert-eyebrow">LIKE WHAT YOU SEE?</p>' +
-        '<h4 class="mp-convert-title">Want your business to look this good online?</h4>' +
-        '<p class="mp-text">' + proj.name + ' is a concept, not a live client site &mdash; but your business could have a digital experience built just like it.</p>' +
-        '<a href="' + buildProjectWhatsappUrl(proj) + '" target="_blank" rel="noopener noreferrer" class="btn btn-primary mp-convert-btn">Start Your Project &rarr;</a>' +
+      '<div class="mp-section">' +
+        '<h4>Location &amp; Contact</h4>' +
+        '<div class="mp-contact-grid">' +
+          '<div><strong>Location</strong><br>Placeholder address line</div>' +
+          '<div><strong>Contact</strong><br>Placeholder phone &amp; email</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="mp-convert">' +
+        '<p>Want your business to look this good online?</p>' +
+        '<a class="btn btn-primary magnetic" href="#contact" data-modal-cta>Build Yours With VisionX &rarr;</a>' +
       '</div>' +
       '<div class="mp-footer">' +
         '<span class="mp-footer-brand">' + proj.name + '</span>' +
         '<span class="mp-footer-copy">Concept preview by VisionX Web Developer</span>' +
       '</div>'
     );
-  }
-
-  function buildProjectWhatsappUrl(proj){
-    var msg = "Hello VisionX Web Developer,\n\n" +
-      "I saw the \u201c" + proj.name + "\u201d concept and I'd like to build a similar digital experience for my business.\n\n" +
-      "Business Name:\nBusiness Type:\n\nSent from:\nvisionxwebdeveloper.com";
-    return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(msg);
   }
 
   /* ---------------------------------------------------------
@@ -699,6 +711,7 @@
   var form = document.getElementById("contactForm");
   var formNote = document.getElementById("formNote");
   var submitBtn = document.getElementById("submitBtn");
+  var WHATSAPP_NUMBER = "919380914269";
   var DEFAULT_SUBMIT_LABEL = "Send Project Inquiry \u2192";
 
   form.addEventListener("submit", function(e){
@@ -764,65 +777,86 @@
   });
 
   /* ---------------------------------------------------------
-     VISIONX ASSISTANT — lightweight, predefined-response widget.
-     This is NOT a live AI model. It answers a fixed set of common
-     questions and otherwise points the visitor to WhatsApp/contact.
-     Kept intentionally simple and transparent about what it is.
+     FLOATING CHAT — small, honest, frontend-only assistant.
+     No AI backend: a fixed set of VisionX questions and answers.
+     Reuses WHATSAPP_NUMBER from the contact-form handler above.
   --------------------------------------------------------- */
-  var ASSISTANT_FAQ = [
-    { q: "What does VisionX do?", a: "VisionX Web Developer designs and builds premium, responsive websites for hotels, resorts, cafés, clinics, salons and growing local businesses." },
-    { q: "What websites do you build?", a: "Business websites built around your brand: hotels & resorts, lodges & homestays, cafés & restaurants, clinics, salons and general local businesses \u2014 each with its own visual direction." },
-    { q: "How much does a website cost?", a: "Pricing depends on the scope \u2014 number of pages, features and content. Share your requirements on WhatsApp or the contact form and we'll get back to you with a clear estimate." },
-    { q: "Do you build hotel websites?", a: "Yes \u2014 rooms, gallery, amenities and booking-friendly layouts are a core focus. Check out the Forest Lodge and Misty Hills concepts in our portfolio." },
-    { q: "Do you build restaurant websites?", a: "Yes \u2014 menu, atmosphere and location-focused sites, similar to the Casa Café concept in our portfolio." },
-    { q: "Can I see a demo?", a: "Absolutely \u2014 scroll to \u201cWhat VisionX Can Build\u201d above and open any concept to preview a full mock website." },
-    { q: "How can I contact VisionX?", a: "Easiest is WhatsApp for a quick reply, or use the contact form \u2014 both are linked below." }
+  var chatToggle = document.getElementById("floatChatToggle");
+  var chatPanel = document.getElementById("floatChatPanel");
+  var chatClose = document.getElementById("floatChatClose");
+  var chatMessages = document.getElementById("floatChatMessages");
+  var chatQuestions = document.getElementById("floatChatQuestions");
+
+  var CHAT_QA = [
+    { q: "What does VisionX do?", a: "VisionX Web Developer designs and builds premium, responsive websites for hotels, resorts, cafés, restaurants, clinics, salons and growing local businesses." },
+    { q: "Do you build hotel or resort websites?", a: "Yes \u2014 hospitality is one of our core focus areas, covering rooms, galleries, experiences and booking-style layouts." },
+    { q: "Do you build café or restaurant websites?", a: "Yes \u2014 menu, atmosphere and gallery-led websites built to make your space impossible to scroll past." },
+    { q: "Can I see your work?", a: "Definitely \u2014 scroll to the \u201cWeb Design Projects & Concepts\u201d section on this page, or tap Explore Concept on any card to open a full preview." },
+    { q: "How can I contact VisionX?", a: "The fastest way is WhatsApp using the button right below this chat. You can also use the contact form, email hello@visionxwebdeveloper.com or call +91 93809 14269." }
   ];
 
-  var assistantToggle = document.getElementById("assistantToggle");
-  var assistantPanel = document.getElementById("assistantPanel");
-  var assistantBody = document.getElementById("assistantBody");
-  var assistantClose = document.getElementById("assistantClose");
+  var chatOpen = false;
+  var askedKeys = {};
 
-  if(assistantToggle && assistantPanel && assistantBody){
-    (function buildAssistantQuestions(){
-      var listHtml = ASSISTANT_FAQ.map(function(item, i){
-        return '<button type="button" class="asst-q" data-q="' + i + '">' + item.q + '</button>';
-      }).join("");
-      assistantBody.innerHTML =
-        '<div class="asst-msg asst-msg-bot">Hi, I&rsquo;m the VisionX Assistant \u2014 a quick-answer helper, not a live AI. Ask me something below:</div>' +
-        '<div class="asst-questions">' + listHtml + '</div>';
-    })();
+  function addChatMessage(text, who){
+    var row = document.createElement("div");
+    row.className = "fcp-msg " + who;
+    row.textContent = text;
+    chatMessages.appendChild(row);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
 
-    assistantBody.addEventListener("click", function(e){
-      var btn = e.target.closest(".asst-q");
-      if(!btn) return;
-      var item = ASSISTANT_FAQ[parseInt(btn.getAttribute("data-q"), 10)];
-      if(!item) return;
-      var answerEl = document.createElement("div");
-      answerEl.className = "asst-msg asst-msg-bot";
-      answerEl.textContent = item.a;
-      assistantBody.appendChild(answerEl);
-      assistantBody.scrollTop = assistantBody.scrollHeight;
+  function renderChatQuestions(){
+    chatQuestions.innerHTML = "";
+    CHAT_QA.forEach(function(item, i){
+      if(askedKeys[i]) return;
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "fcp-q-btn";
+      btn.textContent = item.q;
+      btn.addEventListener("click", function(){
+        addChatMessage(item.q, "user");
+        askedKeys[i] = true;
+        setTimeout(function(){
+          addChatMessage(item.a, "bot");
+          renderChatQuestions();
+        }, 220);
+      });
+      chatQuestions.appendChild(btn);
     });
+  }
 
-    function openAssistant(){
-      assistantPanel.classList.add("open");
-      assistantPanel.setAttribute("aria-hidden", "false");
-      assistantToggle.setAttribute("aria-expanded", "true");
+  function openChat(){
+    if(chatMessages.children.length === 0){
+      addChatMessage("Hi! I'm the VisionX assistant. Ask me anything below \u2014 or use WhatsApp for a real conversation.", "bot");
+      renderChatQuestions();
     }
-    function closeAssistant(){
-      assistantPanel.classList.remove("open");
-      assistantPanel.setAttribute("aria-hidden", "true");
-      assistantToggle.setAttribute("aria-expanded", "false");
-    }
-    assistantToggle.addEventListener("click", function(){
-      if(assistantPanel.classList.contains("open")) closeAssistant();
-      else openAssistant();
+    chatPanel.classList.add("open");
+    chatPanel.setAttribute("aria-hidden", "false");
+    chatToggle.setAttribute("aria-expanded", "true");
+    chatToggle.classList.add("active");
+    chatOpen = true;
+  }
+  function closeChat(){
+    chatPanel.classList.remove("open");
+    chatPanel.setAttribute("aria-hidden", "true");
+    chatToggle.setAttribute("aria-expanded", "false");
+    chatToggle.classList.remove("active");
+    chatOpen = false;
+  }
+
+  if(chatToggle && chatPanel){
+    chatToggle.addEventListener("click", function(){
+      chatOpen ? closeChat() : openChat();
     });
-    if(assistantClose){ assistantClose.addEventListener("click", closeAssistant); }
+    chatClose.addEventListener("click", closeChat);
     document.addEventListener("keydown", function(e){
-      if(e.key === "Escape" && assistantPanel.classList.contains("open")) closeAssistant();
+      if(e.key === "Escape" && chatOpen) closeChat();
+    });
+    document.addEventListener("click", function(e){
+      if(!chatOpen) return;
+      var actions = document.getElementById("floatActions");
+      if(actions && !actions.contains(e.target)) closeChat();
     });
   }
 

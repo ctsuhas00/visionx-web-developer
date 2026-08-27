@@ -32,6 +32,9 @@
 <meta name="theme-color" content="#0b0d10">
 
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="assets/favicon-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -163,6 +166,10 @@
           <span class="tp-url">visionxwebdeveloper.com/yourbusiness</span>
         </div>
         <div class="tp-hero">
+          <div class="tp-hero-media media" data-hint="assets/images/hero/transform-preview.jpg" aria-hidden="true">
+            <img src="assets/images/hero/transform-preview.jpg" alt="" loading="lazy" onerror="this.parentElement.classList.add('no-image')">
+          </div>
+          <div class="tp-hero-scrim" aria-hidden="true"></div>
           <span class="tp-hero-eyebrow">YOUR BUSINESS</span>
           <span class="tp-hero-title">Premium Experience</span>
           <span class="tp-hero-btn">Explore</span>
@@ -393,9 +400,8 @@
 
     <div class="why-grid reveal-group">
       <div class="why-card why-featured">
-        <div class="why-featured-media media" data-hint="assets/images/business/why-featured.png" aria-hidden="true">
-          <img src="assets/images/business/why-featured.png" alt="" loading="lazy" onerror="this.parentElement.classList.add('no-image')">
-          <span class="media-hint">Replace &mdash; assets/images/business/why-featured.png</span>
+        <div class="why-featured-media media" data-hint="assets/images/business/why-featured.jpg" aria-hidden="true">
+          <img src="assets/images/business/why-featured.jpg" alt="" loading="lazy" onerror="this.parentElement.classList.add('no-image')">
         </div>
         <div class="why-featured-scrim" aria-hidden="true"></div>
         <span class="why-num">01</span>
@@ -432,7 +438,7 @@
 
   <!-- ============ PROCESS TIMELINE ============ -->
   <section class="section process" id="process">
-    <div class="section-head">
+    <div class="section-head process-head">
        <p class="eyebrow reveal-up">WEB DESIGN &amp; DEVELOPMENT PROCESS</p>
 
       <h2 class="reveal-up">
@@ -444,12 +450,6 @@
         your website, our process keeps every stage focused on creating a clear,
         responsive and professional digital experience.
       </p>
-    </div>
-
-    <div class="process-visual media reveal-up" data-hint="assets/images/business/process.png" aria-hidden="true">
-      <img src="assets/images/business/process.png" alt="" loading="lazy" onerror="this.parentElement.classList.add('no-image')">
-      <span class="media-hint">Replace &mdash; assets/images/business/process.png</span>
-      <div class="process-visual-scrim" aria-hidden="true"></div>
     </div>
 
     <div class="timeline reveal-group">
@@ -586,11 +586,6 @@
 <footer class="footer">
   <div class="footer-top">
     <h2>Let&rsquo;s build something people remember.</h2>
-    <div class="footer-cta">
-      <a href="#contact" class="btn btn-primary magnetic">Start a Project &rarr;</a>
-      <a href="mailto:hello@visionxwebdeveloper.com" class="footer-cta-link">hello@visionxwebdeveloper.com</a>
-      <a href="https://wa.me/919380914269?text=Hello%20VisionX%20Web%20Developer%2C%0A%0AI%20would%20like%20to%20discuss%20a%20website%20project." target="_blank" rel="noopener noreferrer" class="footer-cta-link">Chat on WhatsApp</a>
-    </div>
   </div>
   <div class="footer-bottom">
     <div class="footer-brand">
@@ -628,24 +623,23 @@
 
 <button class="to-top" id="toTop" aria-label="Back to top">&uarr;</button>
 
+<!-- ============ FLOATING ACTIONS: WhatsApp + Chat (left side) ============ -->
+<div class="float-actions" id="floatActions">
+  <a class="float-btn float-whatsapp" id="floatWhatsapp" href="https://wa.me/919380914269?text=Hello%20VisionX%20Web%20Developer%2C%0A%0AI%20would%20like%20to%20discuss%20a%20website%20project." target="_blank" rel="noopener noreferrer" aria-label="Chat with VisionX on WhatsApp">
+    <svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M16.02 3C9.4 3 4.02 8.38 4.02 15c0 2.23.6 4.32 1.66 6.12L4 29l8.06-1.64A11.9 11.9 0 0 0 16.02 27C22.65 27 28 21.62 28 15S22.65 3 16.02 3Zm0 21.7c-1.95 0-3.77-.53-5.34-1.46l-.38-.22-4.78.97.98-4.65-.25-.4A9.63 9.63 0 0 1 6.34 15c0-5.34 4.34-9.68 9.68-9.68S25.7 9.66 25.7 15s-4.34 9.7-9.68 9.7Zm5.36-7.26c-.29-.15-1.74-.86-2.01-.96-.27-.1-.47-.15-.66.15-.2.29-.76.96-.93 1.16-.17.2-.34.22-.64.07-.29-.15-1.24-.46-2.36-1.46-.87-.78-1.46-1.74-1.63-2.03-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.5.15-.18.2-.3.29-.5.1-.2.05-.37-.02-.51-.07-.15-.66-1.6-.91-2.18-.24-.58-.48-.5-.66-.5-.17-.01-.37-.01-.56-.01-.2 0-.51.07-.78.37-.27.29-1.02 1-1.02 2.44s1.05 2.83 1.19 3.03c.15.2 2.06 3.14 5 4.4.7.3 1.24.48 1.67.61.7.22 1.34.19 1.84.12.56-.08 1.74-.71 1.98-1.4.25-.68.25-1.27.17-1.4-.07-.12-.26-.19-.55-.34Z"/></svg>
+  </a>
+  <button class="float-btn float-chat" id="floatChatToggle" type="button" aria-label="Open VisionX chat assistant" aria-expanded="false" aria-controls="floatChatPanel">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M4 4h16a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H8l-4.4 3.3A.6.6 0 0 1 2.6 20V6a2 2 0 0 1 2-2Z"/></svg>
+  </button>
 
-<!-- ============ FLOATING WHATSAPP CONTACT ============ -->
-<a href="https://wa.me/919380914269?text=Hello%20VisionX%20Web%20Developer%2C%0A%0AI%27d%20like%20to%20discuss%20a%20website%20project." target="_blank" rel="noopener noreferrer" class="whatsapp-float" id="whatsappFloat" aria-label="Chat with VisionX on WhatsApp">
-  <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 2C6.48 2 2 6.36 2 11.75c0 2 .58 3.87 1.6 5.45L2 22l5.02-1.55A10.1 10.1 0 0 0 12 21.5c5.52 0 10-4.36 10-9.75S17.52 2 12 2Zm0 17.7c-1.62 0-3.13-.46-4.4-1.24l-.32-.19-3 .93.95-2.86-.21-.3A7.9 7.9 0 0 1 3.8 11.75C3.8 7.36 7.47 3.8 12 3.8s8.2 3.56 8.2 7.95-3.67 7.95-8.2 7.95Zm4.4-5.86c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.02-.37-1.94-1.18-.72-.63-1.2-1.4-1.34-1.64-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.28-.74-1.76-.2-.46-.4-.4-.54-.4h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28Z"/></svg>
-</a>
-
-<!-- ============ VISIONX ASSISTANT (predefined-response widget) ============ -->
-<button type="button" class="assistant-toggle" id="assistantToggle" aria-label="Open VisionX Assistant" aria-expanded="false" aria-controls="assistantPanel">
-  <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M4 4h16a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H8l-4.5 3.5A.6.6 0 0 1 2.5 20V6a2 2 0 0 1 2-2Z"/></svg>
-</button>
-<div class="assistant-panel" id="assistantPanel" role="dialog" aria-modal="false" aria-label="VisionX Assistant" aria-hidden="true">
-  <div class="asst-head">
-    <span class="asst-head-title">VisionX Assistant</span>
-    <button type="button" class="asst-close" id="assistantClose" aria-label="Close assistant">&times;</button>
-  </div>
-  <div class="asst-body" id="assistantBody"></div>
-  <div class="asst-foot">
-    <a href="https://wa.me/919380914269?text=Hello%20VisionX%2C%20I%20have%20a%20question." target="_blank" rel="noopener noreferrer" class="asst-foot-link">Chat with the team on WhatsApp &rarr;</a>
+  <div class="float-chat-panel" id="floatChatPanel" role="dialog" aria-modal="false" aria-hidden="true" aria-label="VisionX chat assistant">
+    <div class="fcp-head">
+      <span class="fcp-title">VisionX Assistant</span>
+      <button class="fcp-close" id="floatChatClose" type="button" aria-label="Close chat">&times;</button>
+    </div>
+    <p class="fcp-note">Answers here are pre-written, not a live AI &mdash; for anything specific, use WhatsApp or the contact form.</p>
+    <div class="fcp-messages" id="floatChatMessages"></div>
+    <div class="fcp-questions" id="floatChatQuestions"></div>
   </div>
 </div>
 
