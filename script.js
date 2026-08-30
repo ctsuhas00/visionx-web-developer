@@ -29,84 +29,84 @@
      DATA
   --------------------------------------------------------- */
   var CATEGORIES = [
-    { name: "Hotels & Resorts", key: "hotel", img: "assets/images/resort/hotels-resorts.png", grad: "linear-gradient(160deg, rgba(31,58,61,.85), rgba(11,13,16,.9))", desc: "Turn rooms, views and hospitality into an unforgettable digital experience." },
-    { name: "Lodges & Homestays", key: "lodge", img: "assets/images/lodge/lodges-homestays.png", grad: "linear-gradient(160deg, rgba(44,74,52,.8), rgba(11,13,16,.9))", desc: "Bring the warmth of a stay online, from the first scroll to the final booking call." },
-    { name: "Cafés & Restaurants", key: "cafe", img: "assets/images/cafe/cafes-restaurants.png", grad: "linear-gradient(160deg, rgba(122,60,38,.7), rgba(11,13,16,.9))", desc: "Make your menu, atmosphere and brand impossible to scroll past." },
-    { name: "Clinics", key: "clinic", img: "assets/images/clinic/clinics.png", grad: "linear-gradient(160deg, rgba(52,92,96,.65), rgba(11,13,16,.9))", desc: "Build trust before your customer ever walks through the door." },
-    { name: "Salons & Lifestyle", key: "other", img: "assets/images/business/salons-lifestyle.png", grad: "linear-gradient(160deg, rgba(90,50,80,.6), rgba(11,13,16,.9))", desc: "Present your craft with the same polish your clients feel in the chair." },
-    { name: "Local Businesses", key: "other", img: "assets/images/business/local-businesses.png", grad: "linear-gradient(160deg, rgba(201,162,39,.4), rgba(11,13,16,.9))", desc: "Give a growing brand a home online that matches its ambition." }
+    { name: "Hotels & Resorts", key: "hotel", img: "assets/images/resort/hotels-resorts.webp", grad: "linear-gradient(160deg, rgba(31,58,61,.85), rgba(11,13,16,.9))", desc: "Turn rooms, views and hospitality into an unforgettable digital experience." },
+    { name: "Lodges & Homestays", key: "lodge", img: "assets/images/lodge/lodges-homestays.webp", grad: "linear-gradient(160deg, rgba(44,74,52,.8), rgba(11,13,16,.9))", desc: "Bring the warmth of a stay online, from the first scroll to the final booking call." },
+    { name: "Cafés & Restaurants", key: "cafe", img: "assets/images/cafe/cafes-restaurants.webp", grad: "linear-gradient(160deg, rgba(122,60,38,.7), rgba(11,13,16,.9))", desc: "Make your menu, atmosphere and brand impossible to scroll past." },
+    { name: "Clinics", key: "clinic", img: "assets/images/clinic/clinics.webp", grad: "linear-gradient(160deg, rgba(52,92,96,.65), rgba(11,13,16,.9))", desc: "Build trust before your customer ever walks through the door." },
+    { name: "Salons & Lifestyle", key: "other", img: "assets/images/business/salons-lifestyle.webp", grad: "linear-gradient(160deg, rgba(90,50,80,.6), rgba(11,13,16,.9))", desc: "Present your craft with the same polish your clients feel in the chair." },
+    { name: "Local Businesses", key: "other", img: "assets/images/business/local-businesses.webp", grad: "linear-gradient(160deg, rgba(201,162,39,.4), rgba(11,13,16,.9))", desc: "Give a growing brand a home online that matches its ambition." }
   ];
 
   var PROJECTS = [
     {
       id: "forest-lodge", name: "The Forest Lodge", industry: "Hospitality &mdash; Lodge", layout: "hero",
-      img: "assets/images/lodge/forest-lodge.png", grad: "linear-gradient(160deg, #2c4a34, #14171c)",
+      img: "assets/images/lodge/forest-lodge.webp", grad: "linear-gradient(160deg, #2c4a34, #14171c)",
       desc: "A premium lodge website concept focused on nature, rooms, gallery and location.",
       heroTag: "Concept Project &mdash; Hospitality", heroTitle: "Sleep among the trees.",
-      heroImg: "assets/images/lodge/forest-lodge-hero.png", heroGrad: "linear-gradient(160deg, #2c4a34, #16211a)",
+      heroImg: "assets/images/lodge/forest-lodge-hero.webp", heroGrad: "linear-gradient(160deg, #2c4a34, #16211a)",
       sections: [
-        { label: "Rooms", imgs: ["assets/images/lodge/forest-lodge-room-1.png","assets/images/lodge/forest-lodge-room-2.png","assets/images/lodge/forest-lodge-room-3.png"], grad: ["#3a5c43","#243a2a","#4a6b52"] },
-        { label: "Gallery", imgs: ["assets/images/lodge/forest-lodge-gallery-1.png","assets/images/lodge/forest-lodge-gallery-2.png","assets/images/lodge/forest-lodge-gallery-3.png"], grad: ["#243a2a","#4a6b52","#2c4a34"] }
+        { label: "Rooms", imgs: ["assets/images/lodge/forest-lodge-room-1.webp","assets/images/lodge/forest-lodge-room-2.webp","assets/images/lodge/forest-lodge-room-3.webp"], grad: ["#3a5c43","#243a2a","#4a6b52"] },
+        { label: "Gallery", imgs: ["assets/images/lodge/forest-lodge-gallery-1.webp","assets/images/lodge/forest-lodge-gallery-2.webp","assets/images/lodge/forest-lodge-gallery-3.webp"], grad: ["#243a2a","#4a6b52","#2c4a34"] }
       ],
       about: "The Forest Lodge concept explores a quiet, materials-led aesthetic &mdash; timber tones, soft light and generous imagery &mdash; built to make a remote stay feel reachable from the very first screen."
     },
     {
       id: "casa-cafe", name: "Casa Café", industry: "Café", layout: "split",
-      img: "assets/images/cafe/casa-cafe.png", grad: "linear-gradient(160deg, #7a3c26, #1c1210)",
+      img: "assets/images/cafe/casa-cafe.webp", grad: "linear-gradient(160deg, #7a3c26, #1c1210)",
       desc: "A modern café website concept featuring menu, atmosphere, gallery and contact.",
       heroTag: "Concept Project &mdash; Café", heroTitle: "Small cups, big mornings.",
-      heroImg: "assets/images/cafe/casa-cafe-hero.png", heroGrad: "linear-gradient(160deg, #7a3c26, #2a1a12)",
+      heroImg: "assets/images/cafe/casa-cafe-hero.webp", heroGrad: "linear-gradient(160deg, #7a3c26, #2a1a12)",
       sections: [
-        { label: "Menu", imgs: ["assets/images/cafe/casa-cafe-menu-1.png","assets/images/cafe/casa-cafe-menu-2.png","assets/images/cafe/casa-cafe-menu-3.png"], grad: ["#9a5a34","#3a241a","#c98a52"] },
-        { label: "Atmosphere", imgs: ["assets/images/cafe/casa-cafe-atmosphere-1.png","assets/images/cafe/casa-cafe-atmosphere-2.png","assets/images/cafe/casa-cafe-atmosphere-3.png"], grad: ["#3a241a","#c98a52","#7a3c26"] }
+        { label: "Menu", imgs: ["assets/images/cafe/casa-cafe-menu-1.webp","assets/images/cafe/casa-cafe-menu-2.webp","assets/images/cafe/casa-cafe-menu-3.webp"], grad: ["#9a5a34","#3a241a","#c98a52"] },
+        { label: "Atmosphere", imgs: ["assets/images/cafe/casa-cafe-atmosphere-1.webp","assets/images/cafe/casa-cafe-atmosphere-2.webp","assets/images/cafe/casa-cafe-atmosphere-3.webp"], grad: ["#3a241a","#c98a52","#7a3c26"] }
       ],
       about: "Casa Café leans on warm photography and a relaxed grid to bring the feeling of the room &mdash; the light, the counter, the regulars &mdash; onto the screen before a visitor ever orders."
     },
     {
       id: "aura-clinic", name: "Aura Clinic", industry: "Healthcare", layout: "clean",
-      img: "assets/images/clinic/aura-clinic.png", grad: "linear-gradient(160deg, #345c60, #14171c)",
+      img: "assets/images/clinic/aura-clinic.webp", grad: "linear-gradient(160deg, #345c60, #14171c)",
       desc: "A professional clinic website concept focused on trust, services and contact information.",
       heroTag: "Concept Project &mdash; Healthcare", heroTitle: "Care that looks like care.",
-      heroImg: "assets/images/clinic/aura-clinic-hero.png", heroGrad: "linear-gradient(160deg, #345c60, #16232a)",
+      heroImg: "assets/images/clinic/aura-clinic-hero.webp", heroGrad: "linear-gradient(160deg, #345c60, #16232a)",
       sections: [
-        { label: "Services", imgs: ["assets/images/clinic/aura-clinic-services-1.png","assets/images/clinic/aura-clinic-services-2.png","assets/images/clinic/aura-clinic-services-3.png"], grad: ["#3f6d72","#1f3a3d","#5c9296"] },
-        { label: "Team", imgs: ["assets/images/clinic/aura-clinic-team-1.png","assets/images/clinic/aura-clinic-team-2.png","assets/images/clinic/aura-clinic-team-3.png"], grad: ["#1f3a3d","#5c9296","#345c60"] }
+        { label: "Services", imgs: ["assets/images/clinic/aura-clinic-services-1.webp","assets/images/clinic/aura-clinic-services-2.webp","assets/images/clinic/aura-clinic-services-3.webp"], grad: ["#3f6d72","#1f3a3d","#5c9296"] },
+        { label: "Team", imgs: ["assets/images/clinic/aura-clinic-team-1.webp","assets/images/clinic/aura-clinic-team-2.webp","assets/images/clinic/aura-clinic-team-3.webp"], grad: ["#1f3a3d","#5c9296","#345c60"] }
       ],
       about: "Aura Clinic is designed around clarity and calm &mdash; clean typography, ample whitespace and a straightforward path from concern to appointment, so trust is established before the first visit."
     },
     {
       id: "misty-hills", name: "Misty Hills Resort", industry: "Resort", layout: "wide",
-      img: "assets/images/resort/misty-hills.png", grad: "linear-gradient(160deg, #4a5a6b, #14171c)",
+      img: "assets/images/resort/misty-hills.webp", grad: "linear-gradient(160deg, #4a5a6b, #14171c)",
       desc: "A cinematic resort website concept built around destination and scale.",
       heroTag: "Concept Project &mdash; Resort", heroTitle: "Let the view do the talking.",
-      heroImg: "assets/images/resort/misty-hills-hero.png", heroGrad: "linear-gradient(160deg, #4a5a6b, #1a222a)",
+      heroImg: "assets/images/resort/misty-hills-hero.webp", heroGrad: "linear-gradient(160deg, #4a5a6b, #1a222a)",
       sections: [
-        { label: "Experiences", imgs: ["assets/images/resort/misty-hills-experiences-1.png","assets/images/resort/misty-hills-experiences-2.png","assets/images/resort/misty-hills-experiences-3.png"], grad: ["#5c7086","#2a343e","#8298ac"] },
-        { label: "Location", imgs: ["assets/images/resort/misty-hills-location-1.png","assets/images/resort/misty-hills-location-2.png","assets/images/resort/misty-hills-location-3.png"], grad: ["#2a343e","#8298ac","#4a5a6b"] }
+        { label: "Experiences", imgs: ["assets/images/resort/misty-hills-experiences-1.webp","assets/images/resort/misty-hills-experiences-2.webp","assets/images/resort/misty-hills-experiences-3.webp"], grad: ["#5c7086","#2a343e","#8298ac"] },
+        { label: "Location", imgs: ["assets/images/resort/misty-hills-location-1.webp","assets/images/resort/misty-hills-location-2.webp","assets/images/resort/misty-hills-location-3.webp"], grad: ["#2a343e","#8298ac","#4a5a6b"] }
       ],
       about: "Misty Hills is built as a full-bleed, cinematic experience &mdash; wide imagery, slow reveals and minimal copy &mdash; treating the destination itself as the hero of the site."
     },
     {
       id: "local-co", name: "Local & Co.", industry: "Small Business", layout: "layered",
-      img: "assets/images/business/local-business.png", grad: "linear-gradient(160deg, #c9a227, #1c1710)",
+      img: "assets/images/business/local-business.webp", grad: "linear-gradient(160deg, #c9a227, #1c1710)",
       desc: "A clean, confident business website concept for a growing local brand.",
       heroTag: "Concept Project &mdash; Small Business", heroTitle: "A local name, done properly.",
-      heroImg: "assets/images/business/local-business-hero.png", heroGrad: "linear-gradient(160deg, #c9a227, #241d10)",
+      heroImg: "assets/images/business/local-business-hero.webp", heroGrad: "linear-gradient(160deg, #c9a227, #241d10)",
       sections: [
-        { label: "What We Do", imgs: ["assets/images/business/local-business-what-1.png","assets/images/business/local-business-what-2.png","assets/images/business/local-business-what-3.png"], grad: ["#d9b64a","#4a3d1c","#c9a227"] },
-        { label: "Get In Touch", imgs: ["assets/images/business/local-business-contact-1.png","assets/images/business/local-business-contact-2.png","assets/images/business/local-business-contact-3.png"], grad: ["#4a3d1c","#c9a227","#d9b64a"] }
+        { label: "What We Do", imgs: ["assets/images/business/local-business-what-1.webp","assets/images/business/local-business-what-2.webp","assets/images/business/local-business-what-3.webp"], grad: ["#d9b64a","#4a3d1c","#c9a227"] },
+        { label: "Get In Touch", imgs: ["assets/images/business/local-business-contact-1.webp","assets/images/business/local-business-contact-2.webp","assets/images/business/local-business-contact-3.webp"], grad: ["#4a3d1c","#c9a227","#d9b64a"] }
       ],
       about: "Local & Co. shows how a modest, single-location business can carry a premium presentation without needing a large catalogue of pages &mdash; just a clear story, told well."
     }
   ];
 
   var SELECTOR_OPTIONS = [
-    { key: "hotel", label: "Hotel", img: "assets/images/resort/selector-hotel.png", headline: "Rooms. Experiences. Location.\nAll in one digital experience.", copy: "A hotel site built around what guests actually decide with: room types, real photography, and how easy it is to reach you.", grad: "linear-gradient(160deg, #345c60, #14171c)", previewTitle: "Rooms with a view.", previewTag: "Hospitality" },
-    { key: "cafe", label: "Café", img: "assets/images/cafe/selector-cafe.png", headline: "Menu. Atmosphere. Story.\nMake customers want to visit.", copy: "A café site that leads with feeling &mdash; the menu, the space, the people behind the counter &mdash; not a generic contact page.", grad: "linear-gradient(160deg, #7a3c26, #1c1210)", previewTitle: "Your morning ritual.", previewTag: "Café" },
-    { key: "resort", label: "Resort", img: "assets/images/resort/selector-resort.png", headline: "Let your destination sell itself.", copy: "Large-format imagery and a slower pace of scroll, built for a place people are dreaming about before they book.", grad: "linear-gradient(160deg, #4a5a6b, #14171c)", previewTitle: "The view does the talking.", previewTag: "Resort" },
-    { key: "clinic", label: "Clinic", img: "assets/images/clinic/selector-clinic.png", headline: "Professional. Trustworthy. Accessible.", copy: "A calm, credible presentation of your services and team, designed to build confidence before the first appointment.", grad: "linear-gradient(160deg, #1f3a3d, #14171c)", previewTitle: "Care that looks like care.", previewTag: "Clinic" },
-    { key: "lodge", label: "Lodge", img: "assets/images/lodge/selector-lodge.png", headline: "A quiet stay, presented with care.", copy: "Natural tones and unhurried pacing that reflect what a lodge or homestay actually offers &mdash; a slower kind of hospitality.", grad: "linear-gradient(160deg, #2c4a34, #14171c)", previewTitle: "Sleep among the trees.", previewTag: "Lodge" },
-    { key: "other", label: "Other", img: "assets/images/business/selector-other.png", headline: "Your business, its own visual language.", copy: "Every VisionX site starts from your brand and audience, not a template &mdash; tell us about your business and we'll shape the direction together.", grad: "linear-gradient(160deg, #5b4a8a, #14171c)", previewTitle: "Your name, done properly.", previewTag: "Local Business" }
+    { key: "hotel", label: "Hotel", img: "assets/images/resort/selector-hotel.webp", headline: "Rooms. Experiences. Location.\nAll in one digital experience.", copy: "A hotel site built around what guests actually decide with: room types, real photography, and how easy it is to reach you.", grad: "linear-gradient(160deg, #345c60, #14171c)", previewTitle: "Rooms with a view.", previewTag: "Hospitality" },
+    { key: "cafe", label: "Café", img: "assets/images/cafe/selector-cafe.webp", headline: "Menu. Atmosphere. Story.\nMake customers want to visit.", copy: "A café site that leads with feeling &mdash; the menu, the space, the people behind the counter &mdash; not a generic contact page.", grad: "linear-gradient(160deg, #7a3c26, #1c1210)", previewTitle: "Your morning ritual.", previewTag: "Café" },
+    { key: "resort", label: "Resort", img: "assets/images/resort/selector-resort.webp", headline: "Let your destination sell itself.", copy: "Large-format imagery and a slower pace of scroll, built for a place people are dreaming about before they book.", grad: "linear-gradient(160deg, #4a5a6b, #14171c)", previewTitle: "The view does the talking.", previewTag: "Resort" },
+    { key: "clinic", label: "Clinic", img: "assets/images/clinic/selector-clinic.webp", headline: "Professional. Trustworthy. Accessible.", copy: "A calm, credible presentation of your services and team, designed to build confidence before the first appointment.", grad: "linear-gradient(160deg, #1f3a3d, #14171c)", previewTitle: "Care that looks like care.", previewTag: "Clinic" },
+    { key: "lodge", label: "Lodge", img: "assets/images/lodge/selector-lodge.webp", headline: "A quiet stay, presented with care.", copy: "Natural tones and unhurried pacing that reflect what a lodge or homestay actually offers &mdash; a slower kind of hospitality.", grad: "linear-gradient(160deg, #2c4a34, #14171c)", previewTitle: "Sleep among the trees.", previewTag: "Lodge" },
+    { key: "other", label: "Other", img: "assets/images/business/selector-other.webp", headline: "Your business, its own visual language.", copy: "Every VisionX site starts from your brand and audience, not a template &mdash; tell us about your business and we'll shape the direction together.", grad: "linear-gradient(160deg, #5b4a8a, #14171c)", previewTitle: "Your name, done properly.", previewTag: "Local Business" }
   ];
 
   /* ---------------------------------------------------------

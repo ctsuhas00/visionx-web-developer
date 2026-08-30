@@ -312,7 +312,7 @@ button{ font-family: inherit; }
    invisible (a transparent section-head), never a broken-image icon. */
 .process-head{
   position: relative; padding: 36px 40px 36px 32px; margin-left: -32px;
-  background-image: linear-gradient(100deg, rgba(11,13,16,.86) 40%, rgba(11,13,16,.55) 100%), url("assets/images/business/process-backdrop.jpg");
+  background-image: linear-gradient(100deg, rgba(11,13,16,.86) 40%, rgba(11,13,16,.55) 100%), url("assets/images/business/process-backdrop.webp");
   background-size: cover; background-position: center;
   border-left: 1px solid var(--line);
 }
