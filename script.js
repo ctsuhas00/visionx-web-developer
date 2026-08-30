@@ -344,6 +344,18 @@
   /* ---------------------------------------------------------
      SIGNATURE SCROLL MOMENT
      A business exists → ... → VisionX transforms that impression.
+
+     The active step is still driven by the visitor's raw scroll
+     position through this tall section (unchanged), but a fast
+     wheel flick or swipe can move that raw position past several
+     steps' worth of scroll distance in a single input event. Rather
+     than snapping straight to whatever step that raw position maps
+     to, we chase the target one step at a time with a short pacing
+     interval between steps — so a hard, fast scroll still advances
+     the sequence step-by-step (1 → 2 → 3 → 4 → 5) instead of jumping
+     straight to whatever step the raw scroll distance lands on.
+     Keeps native page scrolling (no preventDefault, no scroll-jacking)
+     so wheel/trackpad/touch all keep working exactly as before.
   --------------------------------------------------------- */
   var momentSection = document.getElementById("moment");
   var momentSteps = document.querySelectorAll(".moment-step");
@@ -356,15 +368,50 @@
     });
     var dotEls = momentDots.querySelectorAll("span");
 
+    // Minimum time between advancing/retreating by one step. This is
+    // what makes the sequence feel paced and cinematic instead of
+    // instant, and is what stops a single fast scroll gesture from
+    // visually skipping items — each step still gets its moment on
+    // screen even if the visitor has already scrolled well past it.
+    var MOMENT_STEP_INTERVAL = reduceMotion ? 0 : 500;
+    var momentActiveIdx = 0;
+    var momentTargetIdx = 0;
+    var momentLastStepTime = 0;
+    var momentRafId = null;
+
+    function applyMomentStep(i){
+      momentSteps.forEach(function(step, idx){
+        step.classList.toggle("is-active", idx === i);
+      });
+      dotEls.forEach(function(d, idx){ d.classList.toggle("is-active", idx === i); });
+    }
+
+    function momentTick(now){
+      momentRafId = null;
+      if(momentActiveIdx === momentTargetIdx){ return; }
+      if(now - momentLastStepTime >= MOMENT_STEP_INTERVAL){
+        momentActiveIdx += momentTargetIdx > momentActiveIdx ? 1 : -1;
+        momentLastStepTime = now;
+        applyMomentStep(momentActiveIdx);
+      }
+      if(momentActiveIdx !== momentTargetIdx){
+        momentRafId = requestAnimationFrame(momentTick);
+      }
+    }
+
     function updateMoment(){
       var rect = momentSection.getBoundingClientRect();
       var total = rect.height - window.innerHeight;
       var progress = total > 0 ? Math.min(1, Math.max(0, -rect.top / total)) : 0;
-      var idx = Math.min(momentSteps.length - 1, Math.floor(progress * momentSteps.length));
-      momentSteps.forEach(function(step, i){
-        step.classList.toggle("is-active", i === idx);
-      });
-      dotEls.forEach(function(d, i){ d.classList.toggle("is-active", i === idx); });
+      momentTargetIdx = Math.min(momentSteps.length - 1, Math.floor(progress * momentSteps.length));
+      if(reduceMotion){
+        momentActiveIdx = momentTargetIdx;
+        applyMomentStep(momentActiveIdx);
+        return;
+      }
+      if(momentRafId === null){
+        momentRafId = requestAnimationFrame(momentTick);
+      }
     }
     window.addEventListener("scroll", updateMoment, { passive: true });
     updateMoment();
