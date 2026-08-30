@@ -650,23 +650,102 @@ button{ font-family: inherit; }
 
 /* =========================================================
    TRANSLATE ("From business to website")
-   Centered, balanced composition — a controlled max-width so the
-   two lists read as one intentional column pair instead of
-   stretching edge-to-edge on wide viewports.
+   A three-part stage — raw business inputs on the left, a
+   animated gold "transformation" bridge in the middle, the
+   finished digital experience on the right. Rows read as
+   individual elements (numbered, left-aligned, thin dividers)
+   rather than a centered two-column comparison table.
    ========================================================= */
-.translate-grid{
-  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 28px;
-  max-width: 720px; margin: 0 auto;
+.translate-stage{
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  gap: clamp(24px, 4vw, 56px);
+  max-width: 1040px; margin: 0 auto;
 }
-.translate-col{ display: flex; flex-direction: column; align-items: center; text-align: center; }
-.translate-heading{ font-family: var(--font-mono); font-size: 12px; letter-spacing: .12em; color: var(--brass); margin-bottom: 24px; }
-.translate-list{ width: 100%; max-width: 300px; }
+.translate-col{ display: flex; flex-direction: column; min-width: 0; }
+.translate-col-business{ align-items: flex-end; }
+.translate-col-digital{ align-items: flex-start; }
+.translate-heading{
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: .12em; color: var(--brass);
+  margin: 0 0 22px;
+}
+.translate-list{ width: 100%; max-width: 320px; list-style: none; padding: 0; margin: 0; }
+.translate-col-business .translate-list{ text-align: right; }
+.translate-col-digital .translate-list{ text-align: left; }
 .translate-list li{
-  font-family: var(--font-display); font-size: 22px; padding: 16px 0; border-bottom: 1px solid var(--line);
-  color: var(--muted); text-align: center;
+  display: flex; align-items: baseline; gap: 14px;
+  font-family: var(--font-display); font-size: clamp(18px, 1.7vw, 22px);
+  padding: 15px 0; border-bottom: 1px solid var(--line);
+  color: var(--muted); transition: color .35s var(--ease), padding-left .35s var(--ease), padding-right .35s var(--ease);
 }
+.translate-col-business .translate-list li{ flex-direction: row-reverse; justify-content: flex-start; }
+.translate-col-digital .translate-list li{ justify-content: flex-start; }
+.tl-index{ font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; color: var(--muted-dark); flex-shrink: 0; }
+.tl-label{ min-width: 0; }
 #listDigital li{ color: var(--text-light); }
-.translate-arrow{ color: var(--brass); align-self: center; }
+.translate-list li:hover{ color: var(--brass-soft); }
+.translate-col-business .translate-list li:hover{ padding-right: 8px; }
+.translate-col-digital .translate-list li:hover{ padding-left: 8px; }
+.translate-list li:hover .tl-index{ color: var(--brass); }
+
+/* the bridge — vertical label / animated line / label, sitting
+   in the middle column so it reads the same whether the two
+   lists are side by side (desktop) or stacked (mobile). */
+.translate-bridge{
+  display: flex; flex-direction: column; align-items: center; gap: 16px;
+  padding: 0 4px;
+}
+.tb-label{
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .16em; color: var(--brass);
+  white-space: nowrap;
+}
+.tb-line{
+  position: relative; width: 84px; height: 1px; background: var(--line); overflow: visible;
+}
+.tb-line::after{
+  content: ""; position: absolute; right: -1px; top: 50%; width: 6px; height: 6px;
+  border-right: 1px solid var(--brass); border-bottom: 1px solid var(--brass);
+  transform: translateY(-50%) rotate(-45deg);
+}
+.tb-pulse{
+  position: absolute; top: 50%; left: 0; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--brass-soft); transform: translateY(-50%);
+  box-shadow: 0 0 10px rgba(201,162,39,.55);
+  opacity: 0;
+}
+.translate-bridge.in-view .tb-pulse{ animation: tbTravel 2.6s var(--ease) infinite; }
+@keyframes tbTravel{
+  0%{ left: 0%; opacity: 0; }
+  12%{ opacity: 1; }
+  85%{ opacity: 1; }
+  100%{ left: calc(100% - 6px); opacity: 0; }
+}
+/* Mobile-only counterpart to tbTravel: same pulse, moving top-to-bottom
+   along the vertical arrow instead of left-to-right. */
+@keyframes tbTravelVertical{
+  0%{ top: 0%; opacity: 0; }
+  12%{ opacity: 1; }
+  85%{ opacity: 1; }
+  100%{ top: calc(100% - 6px); opacity: 0; }
+}
+
+/* sequential reveal: digital items settle in slightly after
+   their business counterparts, so the transformation reads
+   left-to-right rather than both sides popping in together. */
+.translate-list.reveal-group.in-view > *:nth-child(1){ transition-delay: .04s; }
+.translate-list.reveal-group.in-view > *:nth-child(2){ transition-delay: .11s; }
+.translate-list.reveal-group.in-view > *:nth-child(3){ transition-delay: .18s; }
+.translate-list.reveal-group.in-view > *:nth-child(4){ transition-delay: .25s; }
+.translate-list.reveal-group.in-view > *:nth-child(5){ transition-delay: .32s; }
+.translate-list.reveal-group.in-view > *:nth-child(6){ transition-delay: .39s; }
+.translate-list.reveal-group.in-view > *:nth-child(7){ transition-delay: .46s; }
+.translate-col-digital .translate-list.reveal-group.in-view > *:nth-child(1){ transition-delay: .38s; }
+.translate-col-digital .translate-list.reveal-group.in-view > *:nth-child(2){ transition-delay: .45s; }
+.translate-col-digital .translate-list.reveal-group.in-view > *:nth-child(3){ transition-delay: .52s; }
+.translate-col-digital .translate-list.reveal-group.in-view > *:nth-child(4){ transition-delay: .59s; }
+.translate-col-digital .translate-list.reveal-group.in-view > *:nth-child(5){ transition-delay: .66s; }
+.translate-col-digital .translate-list.reveal-group.in-view > *:nth-child(6){ transition-delay: .73s; }
+.translate-col-digital .translate-list.reveal-group.in-view > *:nth-child(7){ transition-delay: .80s; }
+.translate-col-digital .translate-list.reveal-group.in-view > *:nth-child(8){ transition-delay: .87s; }
 
 /* =========================================================
    PORTFOLIO — balanced grid
@@ -1081,17 +1160,17 @@ button{ font-family: inherit; }
   .proj-card:last-child{ grid-column: span 2; }
   .stage-line{ flex-direction: column; gap: 36px; }
   .stage-connector{ display: none; }
-  .translate-grid{ grid-template-columns: 1fr; row-gap: 12px; max-width: 420px; }
-  /* min-height + flex centering reserve real layout space for the
-     rotated icon (transform is visual-only, so without an explicit
-     height here the row stays as tall as the *unrotated* SVG and the
-     rotated arrow visually overlaps the list above/below it). */
-  .translate-grid.reveal-group .translate-arrow{
-    display: flex; align-items: center; justify-content: center;
-    min-height: 64px; margin: 8px auto;
-    transform: rotate(90deg);
-  }
-  .translate-arrow svg{ width: 56px; height: auto; display: block; }
+  /* Tablet: keep the left/right two-column composition, just scaled
+     down into a compact desktop-style layout rather than a stretched
+     mobile stack. Mirrored side-by-side columns and the horizontal
+     arrow between them are unchanged — only sizing is reduced. */
+  .translate-stage{ gap: clamp(16px, 3vw, 30px); max-width: 700px; }
+  .translate-list{ max-width: 230px; }
+  .translate-heading{ margin-bottom: 16px; }
+  .translate-list li{ font-size: clamp(15px, 1.8vw, 18px); padding: 11px 0; gap: 10px; }
+  .translate-bridge{ gap: 10px; }
+  .tb-line{ width: 44px; }
+  .tb-label{ font-size: 9.5px; }
   .timeline{ grid-template-columns: repeat(2,1fr); row-gap: 40px; }
   .tl-item:last-child{ grid-column: span 2; }
   .tl-track{ display: none; }
@@ -1188,12 +1267,23 @@ button{ font-family: inherit; }
   .stage h3{ font-size: 21px; }
 
   /* ---------- translate ---------- */
-  .translate-grid{ gap: 8px; max-width: 320px; }
-  .translate-list{ max-width: 280px; }
-  .translate-heading{ margin-bottom: 16px; }
-  .translate-list li{ font-size: 16px; padding: 13px 0; }
-  .translate-arrow{ min-height: 56px; margin: 6px auto; }
-  .translate-arrow svg{ width: 46px; }
+  /* Mobile: the two lists stack, and the connecting arrow becomes a
+     short vertical line pointing down between them — reusing the
+     same bridge markup/animation as desktop, just re-oriented. */
+  .translate-stage{ grid-template-columns: 1fr; row-gap: 20px; max-width: 320px; }
+  .translate-col-business, .translate-col-digital{ align-items: flex-start; width: 100%; }
+  .translate-col-business .translate-list, .translate-col-digital .translate-list{ text-align: left; max-width: none; }
+  .translate-col-business .translate-list li{ flex-direction: row; justify-content: flex-start; }
+  .translate-heading{ margin-bottom: 14px; }
+  .translate-list li{ font-size: 16px; padding: 13px 0; gap: 10px; }
+  .translate-bridge{ gap: 12px; margin: 2px auto; }
+  .tb-line{ width: 1px; height: 34px; }
+  .tb-line::after{
+    right: auto; top: auto; left: 50%; bottom: -1px;
+    transform: translateX(-50%) rotate(45deg);
+  }
+  .tb-pulse{ top: 0; left: 50%; transform: translateX(-50%); }
+  .translate-bridge.in-view .tb-pulse{ animation: tbTravelVertical 2.6s var(--ease) infinite; }
 
   /* ---------- portfolio: one project per view ---------- */
   .portfolio-grid{ grid-template-columns: 1fr; gap: 30px; }
