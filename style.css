@@ -994,21 +994,25 @@ button{ font-family: inherit; }
 .ci-value .ci-whatsapp:hover{ color: var(--brass); border-bottom-color: var(--brass); }
 
 /* =========================================================
-   FOOTER
+   FOOTER — final contact/conversion area, not a nav menu.
+   Asymmetric two-column composition: large statement + brand on
+   the left, a compact "Get in Touch" block on the right. Reuses
+   the .ci-label/.ci-value/.ci-link/.eyebrow tokens already defined
+   for the contact section so the two areas feel like one system.
    ========================================================= */
 .footer{ background: var(--ink-2); border-top: 1px solid var(--line); padding: 90px var(--gutter) 30px; }
-.footer-top{ max-width: var(--container); margin: 0 auto 70px; }
-.footer-top h2{ font-size: clamp(30px,5vw,58px); max-width: 780px; }
-.footer-bottom{
-  max-width: var(--container); margin: 0 auto; padding-bottom: 40px; border-bottom: 1px solid var(--line);
-  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px;
+.footer-main{
+  max-width: var(--container); margin: 0 auto; padding-bottom: 48px; border-bottom: 1px solid var(--line);
+  display: grid; grid-template-columns: 1.6fr 1fr; column-gap: clamp(32px, 6vw, 100px); align-items: start;
 }
-.footer-brand{ display:flex; flex-direction: column; }
-.footer-links{ display: flex; gap: 26px; flex-wrap: wrap; }
-.footer-links a, .footer-social a{ font-size: 14px; color: var(--muted); transition: color .3s; }
-.footer-links a:hover, .footer-social a:hover{ color: var(--brass-soft); }
-.footer-social{ display: flex; gap: 20px; }
-.footer-copy{ max-width: var(--container); margin: 24px auto 0; font-size: 12px; color: var(--muted-dark); font-family: var(--font-mono); }
+.footer-statement h2{ font-size: clamp(30px,5vw,58px); max-width: 620px; }
+.footer-brand{ display: flex; flex-direction: column; margin-top: 36px; }
+.footer-contact{ display: flex; flex-direction: column; gap: 22px; padding-top: 6px; }
+.footer-contact .eyebrow{ margin-bottom: 4px; }
+.footer-contact-item .ci-label{ margin-bottom: 6px; }
+.footer-contact-item .ci-value{ font-size: 19px; }
+.footer-available{ font-family: var(--font-display); font-size: 19px; color: var(--text-light); }
+.footer-copy{ max-width: var(--container); margin: 22px auto 0; font-size: 12px; color: var(--muted-dark); font-family: var(--font-mono); }
 
 /* =========================================================
    MODAL — LIVE WEBSITE PREVIEW
@@ -1182,6 +1186,17 @@ button{ font-family: inherit; }
   .tl-item::before{ top: 3px; left: 0; }
   .contact-grid{ grid-template-columns: 1fr; }
   .moment{ height: 260vh; }
+
+  /* Tablet: compact two-column footer — same left/right composition
+     as desktop, just tightened so it reads as a scaled-down studio
+     footer rather than a stretched one. */
+  .footer{ padding: 70px var(--gutter) 28px; }
+  .footer-main{ grid-template-columns: 1.3fr 1fr; column-gap: clamp(24px, 4vw, 48px); padding-bottom: 40px; }
+  .footer-statement h2{ font-size: clamp(28px, 4.4vw, 42px); max-width: 460px; }
+  .footer-brand{ margin-top: 26px; }
+  .footer-contact{ gap: 18px; }
+  .footer-contact-item .ci-value{ font-size: 17px; }
+  .footer-available{ font-size: 17px; }
 }
 
 /* =========================================================
@@ -1349,12 +1364,14 @@ button{ font-family: inherit; }
   .contact-side{ gap: 22px; }
 
   /* ---------- footer ---------- */
+  /* Single column: statement + brand, then the "get in touch" block,
+     in natural DOM order — no separate stacking rules needed beyond
+     collapsing the grid to one track. */
   .footer{ padding: 64px var(--gutter) 26px; }
-  .footer-top{ margin-bottom: 44px; }
-  .footer-top h2{ font-size: clamp(26px, 8vw, 36px); }
-  .footer-bottom{ flex-direction: column; align-items: flex-start; gap: 26px; padding-bottom: 28px; }
-  .footer-links{ flex-direction: column; gap: 14px; }
-  .footer-social{ gap: 20px; }
+  .footer-main{ grid-template-columns: 1fr; row-gap: 40px; padding-bottom: 28px; }
+  .footer-statement h2{ font-size: clamp(26px, 8vw, 36px); max-width: none; }
+  .footer-brand{ margin-top: 26px; }
+  .footer-contact{ gap: 20px; }
 
   /* ---------- modal preview: feels like a real mobile site ---------- */
   .modal-panel{ margin: 0; width: 100vw; max-height: 100svh; height: 100svh; border-radius: 0; }
