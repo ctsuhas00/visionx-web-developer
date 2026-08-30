@@ -54,7 +54,7 @@
       "url": "https://visionxwebdeveloper.com/",
       "email": "hello@visionxwebdeveloper.com",
       "telephone": "+91 93809 14269",
-      "logo": "https://visionxwebdeveloper.com/assets/favicon.svg"
+      "logo": "https://visionxwebdeveloper.com/assets/apple-touch-icon.png"
     },
     {
       "@type": "WebSite",
@@ -99,7 +99,7 @@
       <a href="#contact">Contact</a>
     </nav>
 
-    <a href="#contact" class="btn btn-ghost nav-cta">Start a Project</a>
+    <a href="#contact" class="btn btn-ghost nav-cta js-start-project" id="navStartProject" aria-haspopup="dialog">Start a Project</a>
 
     <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navMobile">
       <span></span><span></span><span></span>
@@ -634,6 +634,46 @@
     <div class="modal-scroll" id="modalScroll">
       <!-- injected per-project preview -->
     </div>
+  </div>
+</div>
+
+<!-- ============ START A PROJECT MODAL ============ -->
+<div class="modal project-modal" id="projectModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="projectModalTitle">
+  <div class="modal-backdrop" id="projectModalBackdrop"></div>
+  <div class="modal-panel">
+    <button class="modal-close" id="projectModalClose" aria-label="Close">&times;</button>
+
+    <p class="pm-eyebrow">Start a Project</p>
+    <h2 class="pm-title" id="projectModalTitle">Have an idea in mind?</h2>
+    <p class="pm-lede">Let&rsquo;s turn it into a digital experience.</p>
+
+    <form class="contact-form" id="projectForm" novalidate>
+      <div class="field">
+        <label for="pfName">Name</label>
+        <input type="text" id="pfName" name="name" required autocomplete="name">
+      </div>
+      <div class="field">
+        <label for="pfEmail">Email</label>
+        <input type="email" id="pfEmail" name="email" required autocomplete="email">
+      </div>
+      <div class="field">
+        <label for="pfType">Project type</label>
+        <select id="pfType" name="projectType" required>
+          <option value="" disabled selected>Select one</option>
+          <option>New Website</option>
+          <option>Redesign</option>
+          <option>Landing Page</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="pfMessage">Project details</label>
+        <textarea id="pfMessage" name="message" rows="3" required placeholder="A few words about your business and what you need."></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary magnetic" id="projectSubmitBtn">Send Project Inquiry &rarr;</button>
+      <p class="form-note" id="projectFormNote" role="status" aria-live="polite"></p>
+    </form>
   </div>
 </div>
 
