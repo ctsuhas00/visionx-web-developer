@@ -148,9 +148,8 @@
       );
     }).join("");
 
-    var ctaTriggerClass = desktopNavCta && desktopNavCta.classList.contains("js-start-project") ? " js-start-project" : "";
     var ctaHtml = desktopNavCta ?
-      '<a class="btn btn-primary nmi-cta' + ctaTriggerClass + '" href="' + desktopNavCta.getAttribute("href") + '">' + desktopNavCta.textContent + '</a>' : '';
+      '<a class="btn btn-primary nmi-cta" href="' + desktopNavCta.getAttribute("href") + '">' + desktopNavCta.textContent + '</a>' : '';
 
     mobileMenu.innerHTML =
       '<div class="nmi-head">' +
@@ -788,127 +787,6 @@
     submitBtn.disabled = false;
     form.reset();
   });
-
-  /* ---------------------------------------------------------
-     START A PROJECT MODAL — triggered from the nav (desktop
-     .nav-cta and its mobile-menu clone, both marked
-     .js-start-project). Same open/close/focus-trap pattern as
-     the concept modal above; same WhatsApp submission mechanism
-     as the main contact form below, kept short on purpose.
-  --------------------------------------------------------- */
-  var projectModal = document.getElementById("projectModal");
-  if(projectModal){
-    var projectModalPanel = projectModal.querySelector(".modal-panel");
-    var projectModalBackdrop = document.getElementById("projectModalBackdrop");
-    var projectModalClose = document.getElementById("projectModalClose");
-    var projectForm = document.getElementById("projectForm");
-    var projectFormNote = document.getElementById("projectFormNote");
-    var projectSubmitBtn = document.getElementById("projectSubmitBtn");
-    var PROJECT_WHATSAPP_NUMBER = "919380914269";
-    var PROJECT_SUBMIT_LABEL = "Send Project Inquiry \u2192";
-    var projectLastFocused = null;
-
-    var PM_FOCUSABLE = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
-    function getProjectFocusable(){
-      return Array.prototype.slice.call(projectModalPanel.querySelectorAll(PM_FOCUSABLE))
-        .filter(function(el){ return el.offsetParent !== null; });
-    }
-
-    function openProjectModal(){
-      if(projectModal.classList.contains("open")) return;
-      projectModal.classList.add("open");
-      projectModal.setAttribute("aria-hidden", "false");
-      document.body.style.overflow = "hidden";
-      projectLastFocused = document.activeElement;
-      var firstField = document.getElementById("pfName");
-      if(firstField) firstField.focus();
-    }
-    function closeProjectModal(){
-      if(!projectModal.classList.contains("open")) return;
-      projectModal.classList.remove("open");
-      projectModal.setAttribute("aria-hidden", "true");
-      document.body.style.overflow = "";
-      if(projectLastFocused) projectLastFocused.focus();
-    }
-
-    projectModalClose.addEventListener("click", closeProjectModal);
-    projectModalBackdrop.addEventListener("click", closeProjectModal);
-
-    document.addEventListener("keydown", function(e){
-      if(!projectModal.classList.contains("open")) return;
-      if(e.key === "Escape"){ closeProjectModal(); return; }
-      if(e.key === "Tab"){
-        var focusable = getProjectFocusable();
-        if(!focusable.length) return;
-        var first = focusable[0], last = focusable[focusable.length - 1];
-        if(e.shiftKey && document.activeElement === first){
-          e.preventDefault(); last.focus();
-        } else if(!e.shiftKey && document.activeElement === last){
-          e.preventDefault(); first.focus();
-        } else if(!projectModalPanel.contains(document.activeElement)){
-          e.preventDefault(); first.focus();
-        }
-      }
-    });
-
-    /* Delegated so it fires for both the desktop nav-cta and its
-       mobile-menu clone. If the trigger lives inside the mobile
-       menu, close that first and let its own transition finish
-       before the project modal fades in over it. */
-    document.addEventListener("click", function(e){
-      var trigger = e.target.closest(".js-start-project");
-      if(!trigger) return;
-      e.preventDefault();
-      if(mobileMenu.contains(trigger)){
-        closeMobileMenu(false);
-        setTimeout(openProjectModal, 320);
-      } else {
-        openProjectModal();
-      }
-    });
-
-    projectForm.addEventListener("submit", function(e){
-      e.preventDefault();
-      if(!projectForm.checkValidity()){
-        projectFormNote.textContent = "Please fill in the required fields.";
-        projectForm.reportValidity();
-        return;
-      }
-
-      var name = projectForm.elements["name"].value.trim();
-      var email = projectForm.elements["email"].value.trim();
-      var projectType = projectForm.elements["projectType"].value.trim();
-      var message = projectForm.elements["message"].value.trim();
-
-      var lines = [
-        "Hello VisionX Web Developer,",
-        "",
-        "I'd like to start a new project.",
-        "",
-        "Name: " + name,
-        "Email: " + email,
-        "Project Type: " + projectType,
-        "",
-        "Project Details:",
-        message,
-        "",
-        "Sent from:",
-        "visionxwebdeveloper.com"
-      ];
-      var whatsappUrl = "https://wa.me/" + PROJECT_WHATSAPP_NUMBER + "?text=" + encodeURIComponent(lines.join("\n"));
-
-      projectSubmitBtn.disabled = true;
-      projectSubmitBtn.textContent = "Opening WhatsApp\u2026";
-
-      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
-
-      projectFormNote.textContent = "WhatsApp is opening in a new tab with your inquiry pre-filled.";
-      projectSubmitBtn.textContent = PROJECT_SUBMIT_LABEL;
-      projectSubmitBtn.disabled = false;
-      projectForm.reset();
-      closeProjectModal();
-    });
-  }
 
   /* ---------------------------------------------------------
      BACK TO TOP
