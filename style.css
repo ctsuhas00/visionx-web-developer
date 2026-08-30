@@ -1070,7 +1070,6 @@ button{ font-family: inherit; }
 .mp-swatch .media{ position: absolute; inset: 0; }
 .mp-swatch .media img{ width: 100%; height: 100%; object-fit: cover; object-position: center; }
 .mp-text{ font-size: 15px; line-height: 1.7; color: #3c4048; max-width: 560px; }
-.mp-contact-grid{ display: grid; grid-template-columns: 1fr 1fr; gap: 24px; font-size: 14px; color: #3c4048; }
 
 /* =========================================================
    TO TOP
@@ -1389,7 +1388,6 @@ button{ font-family: inherit; }
   .mp-grid{ grid-template-columns: repeat(2,1fr); gap: 10px; }
   .mp-swatch{ aspect-ratio: 1 / 1; height: auto; }
   .mp-text{ font-size: 14.5px; }
-  .mp-contact-grid{ grid-template-columns: 1fr; gap: 16px; font-size: 13.5px; }
   .mp-footer{ padding: 22px 20px; flex-direction: column; align-items: flex-start; gap: 8px; }
 
   /* defensive: unbreakable "url pill" labels must never force horizontal

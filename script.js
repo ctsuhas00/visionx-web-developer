@@ -373,7 +373,7 @@
     // instant, and is what stops a single fast scroll gesture from
     // visually skipping items — each step still gets its moment on
     // screen even if the visitor has already scrolled well past it.
-    var MOMENT_STEP_INTERVAL = reduceMotion ? 0 : 500;
+    var MOMENT_STEP_INTERVAL = reduceMotion ? 0 : 220;
     var momentActiveIdx = 0;
     var momentTargetIdx = 0;
     var momentLastStepTime = 0;
@@ -641,13 +641,6 @@
         '<p class="mp-text">' + proj.about + '</p>' +
       '</div>' +
       sectionsHtml +
-      '<div class="mp-section">' +
-        '<h4>Location &amp; Contact</h4>' +
-        '<div class="mp-contact-grid">' +
-          '<div><strong>Location</strong><br>Placeholder address line</div>' +
-          '<div><strong>Contact</strong><br>Placeholder phone &amp; email</div>' +
-        '</div>' +
-      '</div>' +
       '<div class="mp-convert">' +
         '<p>Want your business to look this good online?</p>' +
         '<a class="btn btn-primary magnetic" href="#contact" data-modal-cta>Build Yours With VisionX &rarr;</a>' +
