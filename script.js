@@ -33,8 +33,8 @@
     { name: "Lodges & Homestays", key: "lodge", img: "assets/images/lodge/lodges-homestays.webp", grad: "linear-gradient(160deg, rgba(44,74,52,.8), rgba(11,13,16,.9))", desc: "Bring the warmth of a stay online, from the first scroll to the final booking call." },
     { name: "Cafés & Restaurants", key: "cafe", img: "assets/images/cafe/cafes-restaurants.webp", grad: "linear-gradient(160deg, rgba(122,60,38,.7), rgba(11,13,16,.9))", desc: "Make your menu, atmosphere and brand impossible to scroll past." },
     { name: "Clinics", key: "clinic", img: "assets/images/clinic/clinics.webp", grad: "linear-gradient(160deg, rgba(52,92,96,.65), rgba(11,13,16,.9))", desc: "Build trust before your customer ever walks through the door." },
-    { name: "Salons & Lifestyle", key: "other", img: "assets/images/business/salons-lifestyle.webp", grad: "linear-gradient(160deg, rgba(90,50,80,.6), rgba(11,13,16,.9))", desc: "Present your craft with the same polish your clients feel in the chair." },
-    { name: "Local Businesses", key: "other", img: "assets/images/business/local-businesses.webp", grad: "linear-gradient(160deg, rgba(201,162,39,.4), rgba(11,13,16,.9))", desc: "Give a growing brand a home online that matches its ambition." }
+    { name: "Local Businesses", key: "other", img: "assets/images/business/local-businesses.webp", grad: "linear-gradient(160deg, rgba(201,162,39,.4), rgba(11,13,16,.9))", desc: "Give a growing brand a home online that matches its ambition." },
+    { name: "Salons & Lifestyle", key: "other", img: "assets/images/business/salons-lifestyle.webp", grad: "linear-gradient(160deg, rgba(90,50,80,.6), rgba(11,13,16,.9))", desc: "Present your craft with the same polish your clients feel in the chair." }
   ];
 
   var PROJECTS = [
@@ -252,7 +252,7 @@
       cursorDot.style.top = e.clientY + "px";
       cursorDot.classList.add("show");
     }, { passive: true });
-    document.querySelectorAll("a, button, .cat-card, .proj-card").forEach(function(el){
+    document.querySelectorAll("a, button, .proj-card").forEach(function(el){
       el.addEventListener("mouseenter", function(){ cursorDot.classList.add("big"); });
       el.addEventListener("mouseleave", function(){ cursorDot.classList.remove("big"); });
     });
@@ -452,7 +452,6 @@
   CATEGORIES.forEach(function(cat, i){
     var card = document.createElement("div");
     card.className = "cat-card";
-    card.tabIndex = 0;
     card.innerHTML =
       mediaHTML(cat.img, cat.name, cat.grad) +
       '<div class="cat-scrim" aria-hidden="true"></div>' +
@@ -460,26 +459,9 @@
         '<span class="cat-index">0' + (i+1) + '</span>' +
         '<h3>' + cat.name + '</h3>' +
         '<p class="cat-desc">' + cat.desc + '</p>' +
-        '<span class="cat-explore">Explore Concept &rarr;</span>' +
       '</div>';
-    card.addEventListener("click", function(){ exploreCategory(cat); });
-    card.addEventListener("keydown", function(e){
-      if(e.key === "Enter" || e.key === " " || e.key === "Spacebar"){
-        e.preventDefault();
-        exploreCategory(cat);
-      }
-    });
     catGrid.appendChild(card);
   });
-
-  /* Category cards ("Explore Concept") reuse the existing business
-     selector below — this was previously wired with no click handler
-     at all, so clicking a category card did nothing. */
-  function exploreCategory(cat){
-    selectBusiness(cat.key);
-    var target = document.getElementById("services");
-    if(target){ target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" }); }
-  }
 
   /* ---------------------------------------------------------
      BUILD: portfolio / concept project cards (editorial layout)
@@ -831,7 +813,7 @@
     { q: "What does VisionX do?", a: "VisionX Web Developer designs and builds premium, responsive websites for hotels, resorts, cafés, restaurants, clinics, salons and growing local businesses." },
     { q: "Do you build hotel or resort websites?", a: "Yes \u2014 hospitality is one of our core focus areas, covering rooms, galleries, experiences and booking-style layouts." },
     { q: "Do you build café or restaurant websites?", a: "Yes \u2014 menu, atmosphere and gallery-led websites built to make your space impossible to scroll past." },
-    { q: "Can I see your work?", a: "Definitely \u2014 scroll to the \u201cWeb Design Projects & Concepts\u201d section on this page, or tap Explore Concept on any card to open a full preview." },
+    { q: "Can I see your work?", a: "Definitely \u2014 scroll to the \u201cWeb Design Projects & Concepts\u201d section on this page, or tap View Concept on any project to open a full preview." },
     { q: "How can I contact VisionX?", a: "The fastest way is WhatsApp using the button right below this chat. You can also use the contact form, email hello@visionxwebdeveloper.com or call +91 93809 14269." }
   ];
 

@@ -551,17 +551,17 @@ button{ font-family: inherit; }
 .cat-card{
   position: relative; background: var(--ink-2); min-height: 380px;
   display: flex; flex-direction: column; justify-content: flex-end;
-  cursor: pointer; overflow: hidden;
+  overflow: hidden;
 }
 .cat-card .media{ position: absolute; inset: 0; z-index: 0; }
 .cat-card .media img{ transition: transform .9s var(--ease); }
-.cat-card:hover .media img, .cat-card:focus-within .media img{ transform: scale(1.07); }
+.cat-card:hover .media img{ transform: scale(1.07); }
 .cat-scrim{
   position: absolute; inset: 0; z-index: 1;
   background: linear-gradient(0deg, rgba(11,13,16,.92) 0%, rgba(11,13,16,.55) 46%, rgba(11,13,16,.15) 100%);
   transition: background .5s var(--ease);
 }
-.cat-card:hover .cat-scrim, .cat-card:focus-within .cat-scrim{ background: linear-gradient(0deg, rgba(11,13,16,.94) 0%, rgba(11,13,16,.72) 55%, rgba(11,13,16,.25) 100%); }
+.cat-card:hover .cat-scrim{ background: linear-gradient(0deg, rgba(11,13,16,.94) 0%, rgba(11,13,16,.72) 55%, rgba(11,13,16,.25) 100%); }
 .cat-body{ position: relative; z-index: 2; padding: 32px 28px; }
 .cat-index{ font-family: var(--font-mono); font-size: 11px; color: var(--brass-soft); display: block; margin-bottom: 14px; }
 .cat-card h3{ font-size: 25px; margin-bottom: 10px; color: #fff; }
@@ -569,21 +569,13 @@ button{ font-family: inherit; }
   color: rgba(243,239,230,.72); font-size: 14px; line-height: 1.5;
   max-height: 0; opacity: 0; overflow: hidden; transition: max-height .5s var(--ease), opacity .4s var(--ease);
 }
-.cat-card:hover .cat-desc, .cat-card:focus-within .cat-desc{ max-height: 80px; opacity: 1; }
-.cat-explore{
-  display: block; margin-top: 12px;
-  font-family: var(--font-mono); font-size: 12px; letter-spacing: .06em; color: var(--brass-soft);
-  opacity: 0; transform: translateX(-8px); transition: opacity .4s var(--ease), transform .4s var(--ease);
-}
-.cat-card:hover .cat-explore, .cat-card:focus-within .cat-explore{ opacity: 1; transform: translateX(0); }
+.cat-card:hover .cat-desc{ max-height: 80px; opacity: 1; }
 
-/* touch devices have no hover — the description/CTA that hover would
+/* touch devices have no hover — the description that hover would
    reveal on desktop must be visible by default instead of hidden */
 @media (hover:none){
   .cat-scrim{ background: linear-gradient(0deg, rgba(11,13,16,.95) 0%, rgba(11,13,16,.62) 55%, rgba(11,13,16,.2) 100%); }
   .cat-desc{ max-height: 90px; opacity: 1; }
-  .cat-explore{ opacity: 1; transform: translateX(0); }
-  .cat-card:active{ background: var(--ink-3); }
 }
 
 /* =========================================================
