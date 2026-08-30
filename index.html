@@ -31,10 +31,16 @@
 
 <meta name="theme-color" content="#0b0d10">
 
+<!-- Only assets/favicon.svg ships with this project (see README folder
+     structure) — modern browsers use it for the tab icon, so no broken
+     requests fire. iOS's home-screen icon still requires a real PNG, so
+     that line stays commented out until assets/apple-touch-icon.png
+     (180x180) and the two favicon PNGs below exist on disk — add them
+     and uncomment for wider legacy-browser and iOS coverage. -->
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="assets/favicon-16.png" sizes="16x16" type="image/png">
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<!-- <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png"> -->
+<!-- <link rel="icon" href="assets/favicon-16.png" sizes="16x16" type="image/png"> -->
+<!-- <link rel="apple-touch-icon" href="assets/apple-touch-icon.png"> -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,7 +60,7 @@
       "url": "https://visionxwebdeveloper.com/",
       "email": "hello@visionxwebdeveloper.com",
       "telephone": "+91 93809 14269",
-      "logo": "https://visionxwebdeveloper.com/assets/apple-touch-icon.png"
+      "logo": "https://visionxwebdeveloper.com/assets/favicon.svg"
     },
     {
       "@type": "WebSite",
@@ -271,6 +277,10 @@
       <div class="impressions-ui" id="impressionsUI" aria-hidden="true">
         <div class="iu-chrome"><span></span><span></span><span></span><span class="iu-url">visionxwebdeveloper.com/yourbusiness</span></div>
         <div class="iu-hero">
+          <div class="iu-hero-media media" data-hint="assets/images/placeholders/project-placeholder-1.webp" aria-hidden="true">
+            <img src="assets/images/placeholders/project-placeholder-1.webp" alt="" loading="lazy" onerror="this.parentElement.classList.add('no-image')">
+          </div>
+          <div class="iu-hero-scrim" aria-hidden="true"></div>
           <span class="iu-eyebrow">YOUR BUSINESS</span>
           <span class="iu-title">A First Impression, Designed On Purpose.</span>
           <span class="iu-btn">Explore</span>
@@ -482,6 +492,11 @@
   <!-- ============ CONVERSION BAND ============ -->
   <section class="section convert">
     <div class="convert-inner reveal-up">
+      <div class="convert-media media" data-hint="assets/images/placeholders/project-placeholder-3.webp" aria-hidden="true">
+        <img src="assets/images/placeholders/project-placeholder-3.webp" alt="" loading="lazy" onerror="this.parentElement.classList.add('no-image')">
+        <span class="media-hint">Replace &mdash; assets/images/placeholders/project-placeholder-3.webp</span>
+      </div>
+      <div class="convert-scrim" aria-hidden="true"></div>
       <p class="eyebrow">START HERE</p>
       <h2>Imagine Your Business Here.</h2>
       <p>Tell us what makes your business different. We&rsquo;ll turn that story into a digital experience people remember.</p>

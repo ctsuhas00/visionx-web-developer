@@ -719,12 +719,16 @@
   if(!reduceMotion && window.matchMedia("(hover:hover)").matches){
     document.querySelectorAll(".magnetic").forEach(function(btn){
       btn.addEventListener("mousemove", function(e){
+        btn.style.transition = "none";
         var rect = btn.getBoundingClientRect();
         var x = (e.clientX - rect.left - rect.width/2) * 0.18;
         var y = (e.clientY - rect.top - rect.height/2) * 0.35;
         btn.style.transform = "translate(" + x + "px," + y + "px)";
       });
-      btn.addEventListener("mouseleave", function(){ btn.style.transform = ""; });
+      btn.addEventListener("mouseleave", function(){
+        btn.style.transition = "transform .3s cubic-bezier(.2,.8,.2,1)";
+        btn.style.transform = "";
+      });
     });
   }
 
